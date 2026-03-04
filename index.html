@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Instituto ABC | Inicio</title>
+</head>
+<body>
+    <!-- Header -->
+         <header class="main-header">
+        <div class="logo">
+            <a href="index.html"><img src="#" alt="Logo Instituto ABC" class="logo"></a>
+        </div>
+
+        <nav class="botones-header">
+            <a href="pages/login" class="btn login">Iniciar sesión</a>
+            <a href="#" class="btn register">Registrarse</a>
+        </nav>
+    </header>
+
+    <!-- contenido principal de la página -->
+
+    <main>
+        <section class="buscador">
+            <input type="text" placeholder="Buscar cursos..." aria-label="Buscar cursos"class="search-input">
+        </section>
+
+        <!-- Tarjetas de cursos -->
+         <section class="grid-cursos">
+            <article class="tarjeta-cursos" data-course="1">
+                <img src="#" alt="Curso de Desarrollo Web.">
+                <h3>Curso de Desarrollo Web</h3>
+                <p>Introducción a HTML, CSS y fundamentos digitales.</p>
+            </article>
+
+            <article class="tarjeta-cursos" data-course="2">
+                <img src="#" alt="Curso de Diseño UX.">
+                <h3>Curso de Diseño UX</h3>
+                <p>Principios básicos de experiencia de usuario.</p>
+            </article>
+
+            <article class="tarjeta-cursos" data-course="3">
+                <img src="#" alt="Curso de JavaScript">
+                <h3>Curso de JavaScript</h3>
+                <p>Interactividad y lógica en la web.</p>
+            </article>
+
+            <article class="tarjeta-cursos" data-course="4">
+                <img src="#" alt="Curso de Bases de Datos.">
+                <h3>Curso de Bases de Datos</h3>
+                <p>Modelado y consultas SQL básicas.</p>
+            </article>
+
+            <article class="tarjeta-cursos" data-course="5">
+                <img src="#" alt="Curso de Python">
+                <h3>Curso de Python</h3>
+                <p>Programación desde cero.</p>
+            </article>
+
+            <article class="tarjeta-cursos" data-course="6">
+                <img src="#" alt="Curso de Marketing Digital">
+                <h3>Curso de Marketing Digital</h3>
+                <p>Estrategias digitales modernas.</p>
+            </article>
+
+            <article class="tarjeta-cursos" data-course="7">
+                <img src="#" alt="Curso de Ciberseguridad">
+                <h3>Curso de Ciberseguridad</h3>
+                <p>Fundamentos de seguridad informática.</p>
+            </article>
+            
+            <article class="tarjeta-cursos" data-course="8">
+                <img src="#" alt="Curso de Inteligencia Artificial">
+                <h3>Curso de Inteligencia Artificial</h3>
+                <p>Conceptos básicos de IA y machine learning.</p>
+            </article>
+         </section>
+
+    <div class="modal" id="modal-curso">
+        <div class="contenido-modal">
+            <button class="close-modal">&times;</button>
+
+            <h2>Título del Curso</h2>
+            <p>Descripción básica del curso. Aquí se mostrará información dinámica.</p>
+
+            <div class="contenedor-video">
+                <iframe 
+                    width="100%" 
+                    height="315" 
+                    src="https://www.youtube.com/watch?v=KnCMAKrINMg" 
+                    title="Video del curso"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+
+    </main>
+    <footer class="main-footer">
+        <p>Hecho con ❤️ por <a href="https://https://github.com/dana-villa" target="_blank">Dana Villamizar</a>, <a href="https.//github.com/sixthdam" target="_blank">Karina Méndez</a> y <a href="https://github.com/Shiroses" target="_blank"> Santiago Domínguez.</a>
+        </p>
+    </footer>
+</body>
+</html>
