@@ -6,6 +6,7 @@
 
 body {
     font-family: system-ui, -apple-system, sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(../images/Fondo.webp) no-repeat center;
     background-color: #f5f7fa;
     color: #333;
     line-height: 1.5;
@@ -19,7 +20,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 40px;
+    padding: 0 40px;
     background-color: #1f3c88;
 }
 
