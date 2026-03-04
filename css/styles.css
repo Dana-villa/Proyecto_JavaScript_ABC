@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.5;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #1f3c88;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.botones-header {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.login {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.register {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+main {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.buscador {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.buscador input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.grid-cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.tarjeta-cursos {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-cursos:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.tarjeta-cursos img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.tarjeta-cursos h3 {
+    font-size: 18px;
+    padding: 15px 15px 5px 15px;
+}
+
+.tarjeta-cursos p {
+    font-size: 14px;
+    padding: 0 15px 15px 15px;
+    color: #666;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contenido-modal {
+    background-color: white;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.contenedor-video {
+    margin-top: 15px;
+}
+
+.main-footer {
+    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    background-color: #1f3c88;
+    color: white;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
