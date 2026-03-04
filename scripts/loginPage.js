@@ -1,16 +1,23 @@
-// Script para mostrar/ocultar contraseña
-document.addEventListener('DOMContentLoaded', function() {
-    const passwordInput = document.getElementById('password');
-    const eyeIcon = document.querySelector('.icon-eye');
+// script.js - funcionalidad mínima: mostrar/ocultar contraseña
 
-// Evento para el ícono de ojo
-eyeIcon.addEventListener('click', function() {
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text'; // Mostrar texto
-        eyeIcon.style.color = '#007bff'; // Cambiar color del ícono
-    } else {
-        passwordInput.type = 'password'; // Ocultar texto
-        eyeIcon.style.color = '#aaa'; // Restaurar color del ícono
+document.addEventListener('DOMContentLoaded', function() {
+    const togglePassword = document.getElementById('toggle-password');
+    const passwordField = document.getElementById('password-field');
+
+    if (togglePassword && passwordField) {
+        togglePassword.addEventListener('click', function() {
+            // Cambiar el tipo de input entre 'password' y 'text'
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+
+            // Alternar el icono (opcional, pero se mantiene el mismo emoji)
+            // Si se quisiera cambiar a un ojo tachado, se podría, pero la imagen usa el mismo.
+            // Solo para dar feedback sutil:
+            if (type === 'text') {
+                togglePassword.style.opacity = '0.7';
+            } else {
+                togglePassword.style.opacity = '1';
+            }
+        });
     }
-});
 });
