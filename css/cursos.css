@@ -1,3 +1,7 @@
+body.modal-open {
+    overflow: hidden;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -7,6 +11,11 @@ main {
 
 }
 
+h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #1f3c88;
+}
 .buscador {
     margin-bottom: 30px;
     text-align: center;
@@ -65,32 +74,60 @@ main {
     position: fixed;
     inset: 0;
     background-color: rgba(0,0,0,0.6);
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.modal:not(.hidden) {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .contenido-modal {
+    position: relative;
     background-color: white;
     width: 100%;
-    max-width: 700px;
+    max-width: 750px;
+    max-height: 85vh;
+    overflow-y: auto;
     border-radius: 10px;
     padding: 25px;
-    position: relative;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.contenido-modal img {
+    margin-top: 20px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .close-modal {
     position: absolute;
-    top: 10px;
+    top: 12px;
     right: 15px;
-    font-size: 22px;
+    font-size: 26px;
     border: none;
     background: none;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.close-modal:hover {
+    color: red;
 }
 
 .contenedor-video {
     margin-top: 15px;
+}
+
+.hidden {
+    display: none;
 }
