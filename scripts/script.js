@@ -59,9 +59,8 @@ function loadClases() {
                 <h3>${nombre}</h3>
                 <p>${descripcion}</p>
             </article>
-            `;
+        `;
     });
-    
 }
 
 loadClases()
