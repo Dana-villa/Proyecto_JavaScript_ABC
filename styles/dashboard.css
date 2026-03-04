@@ -153,7 +153,6 @@ body {
 /* ===== CONTENIDO PRINCIPAL (fondo blanco) ===== */
 .main-content {
     flex: 1;
-    background: #f9fafc;
     padding: 2rem 2.5rem;
     overflow-y: auto;
 }
@@ -164,6 +163,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2.5rem;
+    background-color: rgb(156, 7, 7);
 }
 
 .header-left {

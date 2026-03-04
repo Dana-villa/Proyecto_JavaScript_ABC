@@ -8,8 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="gestion-cursos.css">
+    <link rel="stylesheet" href="./styles/getionCursos.css">
 </head>
 <body>
 
@@ -18,33 +17,29 @@
             <div class="sidebar-bg" style="background-image: url('img/sidebar-bg.jpg');"></div>
             <div class="sidebar-content">
                 <div class="sidebar-header">
-                    <img src="img/logo-escudo.png" alt="Escudo ABC" class="sidebar-escudo">
-                    <div class="sidebar-titulos">
-                        <span class="sidebar-institucion">INSTITUCIÓN EDUCATIVA</span>
-                        <span class="sidebar-abc">ABC</span>
-                    </div>
+                    <img src="./images/escudo.png" alt="Escudo ABC" class="sidebar-escudo">
                 </div>
 
                 <nav class="sidebar-menu">
                     <ul>
                         <li class="menu-item" data-path="dashboard">
-                            <img src="img/icon-dashboard.png" alt="" class="menu-icon">
+                            <img src="./images/dashboard.png" alt="" class="menu-icon">
                             <span>Dashboard Principal</span>
                         </li>
                         <li class="menu-item active" data-path="cursos">
-                            <img src="img/icon-cursos.png" alt="" class="menu-icon">
+                            <img src="./images/gestioncursos.png" alt="" class="menu-icon">
                             <span>Gestión de Cursos</span>
                         </li>
                         <li class="menu-item" data-path="docentes">
-                            <img src="img/icon-docentes.png" alt="" class="menu-icon">
+                            <img src="./images/gestiondocentes.png" alt="" class="menu-icon">
                             <span>Gestión de Docentes</span>
                         </li>
                         <li class="menu-item" data-path="lecciones">
-                            <img src="img/icon-lecciones.png" alt="" class="menu-icon">
+                            <img src="./images/contenido.png" alt="" class="menu-icon">
                             <span>Lecciones y Contenidos</span>
                         </li>
                         <li class="menu-item" data-path="admin">
-                            <img src="img/icon-admin.png" alt="" class="menu-icon">
+                            <img src="./images/administrador.png" alt="" class="menu-icon">
                             <span>Módulo Administrador</span>
                         </li>
                     </ul>
@@ -52,7 +47,7 @@
 
                 <div class="sidebar-footer">
                     <div class="cerrar-sesion">
-                        <img src="img/icon-logout.png" alt="" class="menu-icon">
+                        <img src="./images/sesion.png" alt="" class="menu-icon">
                         <span>Cerrar Sesión</span>
                     </div>
                 </div>
@@ -62,45 +57,47 @@
         <main class="main-content">
             <header class="main-header">
                 <div class="header-left">
-                    <img src="img/icon-grid.png" alt="Menú" class="icon-grid">
-                    <div class="header-titles">
-                        <h1 class="page-title">Gestión de Cursos</h1>
-                        <p class="page-subtitle">Administre, cree y visualice todos los cursos, módulos y lecciones.</p>
-                    </div>
+                    <img src="./images/cuad.png" alt="Menú" class="icon-grid">
                 </div>
-
+                
                 <div class="header-right">
                     <div class="notificacion">
-                        <img src="img/icon-notificacion.png" alt="Notificaciones" class="icon-notification">
+                        <img src="./images/notificacion.png" class="icon-notification">
                         <span class="notificacion-badge">3</span>
                     </div>
                     <div class="avatar-container">
-                        <img src="img/avatar-user.png" alt="User Pérez" class="avatar-img">
+                        <img src="./images/hacker.png" alt="User Pérez" class="avatar-img">
                         <span class="avatar-nombre">User Pérez</span>
-                        <img src="img/icon-chevron-down.png" alt="" class="icon-chevron">
-                    </div>
-                    <button class="btn-crear-curso">
-                        <span class="btn-icon">+</span> Añadir Nuevo Curso
-                    </button>
+                        <img src="./images/aba.png" alt="" class="icon-chevron">
+                    </div>                   
                 </div>
             </header>
 
+            <div class="container">
+                <div class="header-titles">
+                <button class="btn-crear-curso">
+                        <span class="btn-icon">+</span> Añadir Nuevo Curso
+                </button>
+                <h1 class="page-title">Gestión de Cursos</h1>
+                <p class="page-subtitle">Administre, cree y visualice todos los cursos, módulos y lecciones.</p>
+            </div>
+
             <div class="search-metrics-row">
                 <div class="search-wrapper">
-                    <img src="img/icon-search.png" alt="Buscar" class="search-icon">
+                    <img src="./images/busq.png" alt="Buscar" class="search-icon">
                     <input type="text" class="search-input" placeholder="Buscar cursos..." id="searchInput">
                 </div>
 
                 <div class="metrics-cards">
                     <div class="metric-card metric-cursos">
-                        <img src="img/icon-cursos-total.png" alt="Cursos" class="metric-icon">
+                        <img src="./images/birrete.webp" alt="Cursos" class="metric-icon">
                         <div class="metric-info">
                             <span class="metric-label">Total Cursos</span>
                             <span class="metric-number">(8)</span>
                         </div>
                     </div>
                     <div class="metric-card metric-estudiantes">
-                        <img src="img/icon-estudiantes-total.png" alt="Estudiantes" class="metric-icon">
+                        <img src="./images/estud.png" alt="Estudiantes" class="metric-icon">
                         <div class="metric-info">
                             <span class="metric-label">Total Estudiantes</span>
                             <span class="metric-number">(120)</span>
@@ -117,13 +114,13 @@
                     <h3 class="curso-titulo">Matemáticas Básicas</h3>
                     <p class="curso-descripcion">Introducción al álgebra y geometría</p>
                     <div class="curso-profesor">
-                        <img src="img/icon-profesor.png" alt="" class="icon-profesor">
+                        <img src="./images/hombre.png" alt="" class="icon-profesor">
                         <span>Prof. Juan Pérez</span>
                     </div>
                     <div class="card-acciones">
-                        <img src="img/icon-ver.png" alt="Ver" class="accion-icon">
-                        <img src="img/icon-editar.png" alt="Editar" class="accion-icon">
-                        <img src="img/icon-eliminar.png" alt="Eliminar" class="accion-icon">
+                        <img src="./images/ojo.webp" alt="Ver" class="accion-icon">
+                        <img src="./images/lapiz.png" alt="Editar" class="accion-icon">
+                        <img src="./images/eliminar.png" alt="Eliminar" class="accion-icon">
                     </div>
                 </div>
 
@@ -134,17 +131,20 @@
                     <h3 class="curso-titulo">Historia Universal</h3>
                     <p class="curso-descripcion">Resumen de las civilizaciones antiguas</p>
                     <div class="curso-profesor">
-                        <img src="img/icon-profesor.png" alt="" class="icon-profesor">
+                        <img src="./images/mujer.png" alt="" class="icon-profesor">
                         <span>Prof. María López</span>
                     </div>
                     <div class="card-acciones">
-                        <img src="img/icon-ver.png" alt="Ver" class="accion-icon">
-                        <img src="img/icon-editar.png" alt="Editar" class="accion-icon">
-                        <img src="img/icon-eliminar.png" alt="Eliminar" class="accion-icon">
+                        <img src="./images/ojo.webp" alt="Ver" class="accion-icon">
+                        <img src="./images/lapiz.png" alt="Editar" class="accion-icon">
+                        <img src="./images/eliminar.png" alt="Eliminar" class="accion-icon">
                     </div>
                 </div>
 
                 </section>
+            </div>
+            
+            
         </main>
     </div>
 
