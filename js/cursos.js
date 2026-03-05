@@ -46,13 +46,12 @@ function submitCourse(){
     console.table(localStorage)
 }
 
-document.querySelector(".btn-crear-curso").addEventListener("click", (e) => {
-    e.preventDefault();
-    
+document.querySelector(".btn-crear-curso").addEventListener("click", () => {
     
     document.querySelector(".form-container").classList.add("active")
-    document.querySelector(".submit-btn").addEventListener("submit", ()=>{
-    submitCourse()
+    document.querySelector(".submit-btn").addEventListener("submit", function(e){
+        e.preventDefault();
+        submitCourse();
     })
 })
 document.querySelector(".close-btn").addEventListener("click", () => {
