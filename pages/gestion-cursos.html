@@ -147,8 +147,9 @@
 
             </div>
         </main>
-        <div>
-            <form id="courseForm" class="form-container">
+        <div class="form-container">
+            <form id="courseForm">
+                <button type="button" class="close-btn">&times;</button>
                 <h2>Crear Nuevo Curso</h2>
                 
                 <div class="section">
@@ -159,10 +160,10 @@
                     <input type="text" name="shortDescription" required>
 
                     <label>Descripción Larga:</label>
-                    <textarea name="longDescription" rows="3"></textarea>
+                    <textarea name="longDescription" rows="3" required></textarea>
 
                     <label>URL del Banner (Ruta de imagen):</label>
-                    <input type="text" name="banner" placeholder="../images/ejemplo.webp">
+                    <input type="text" name="banner" placeholder="../images/ejemplo.webp" required>
                 </div>
 
                 <hr>
@@ -171,14 +172,14 @@
                     <div class="lesson-card">
                         <h4>Lección 1</h4>
                         <input type="text" name="lessonTitle" placeholder="Título de la lección" required>
-                        <textarea name="lessonContent" placeholder="Contenido de la lección"></textarea>
+                        <textarea name="lessonContent" placeholder="Contenido de la lección" required></textarea>
                         <input type="url" name="lessonVideo" placeholder="URL de video (YouTube Embed)">
                     </div>
                 </div>
 
-                <button type="button" id="addLessonBtn">+ Añadir otra lección</button>
+                <button type="button" id="addLessonBtn">&plus; Añadir otra lección</button>
                 <br><br>
-                <button type="submit" class="submit-btn">Guardar Curso (JSON)</button>
+                <button type="submit" class="submit-btn">Guardar Curso</button>
             </form>
         </div>
 </body>

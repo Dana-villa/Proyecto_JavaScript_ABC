@@ -38,9 +38,26 @@ function renderCards(list = modules) {
 }
 
 
-function renderModal(){
-    document.querySelector(".btn-crear-curso").addEventListener("click", async () => {
-        
-        
-    })
+const form = document.querySelector("#courseForm")
+function submitCourse(){
+    const formData = new FormData(form)
+    const data = Object.fromEntries(formData.entries())
+    localStorage.setItem('formSnapshot', JSON.stringify(data))
+    console.table(localStorage)
 }
+
+document.querySelector(".btn-crear-curso").addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    
+    document.querySelector(".form-container").classList.add("active")
+    document.querySelector(".submit-btn").addEventListener("submit", ()=>{
+    submitCourse()
+    })
+})
+document.querySelector(".close-btn").addEventListener("click", () => {
+    document.querySelector(".form-container").classList.remove("active")
+    
+})
+
+console.table(localStorage)
