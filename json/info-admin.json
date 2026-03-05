@@ -1,0 +1,9 @@
+[
+    {
+        "id": "AM001",
+        "name": "Allied Mastercomputer",
+        "email":"AM@example.com",
+        "password":"123",
+        "role": "admin"
+    }
+]

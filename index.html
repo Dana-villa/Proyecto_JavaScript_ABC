@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/escudo.webp" type="image/webp">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cursos.css">
+    <title>Instituto ABC | Inicio</title>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <a href="./index.html"><img src="./images/escudo.webp" alt="Escudo ABC" class="sidebar-escudo"></a>
+                </div>
+
+                <nav class="sidebar-menu">
+                    <ul>
+                        <li class="menu-item active" data-path="dashboard">
+                            <a href="./pages/login.html" class="menu-link">
+                                <img src="./images/dashboard.webp" alt="" class="menu-icon">
+                                <span>Iniciar Sesión</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+    </div>
+
+    <!-- contenido principal de la página -->
+    <main>
+        <h1 class="titulo">Catálogo de Cursos</h1>
+        <section class="buscador">
+            <input type="text" placeholder="Buscar cursos..." aria-label="Buscar cursos"class="search-input">
+        </section>
+
+        <!-- Tarjetas de cursos -->
+        <section class="grid-cursos"></section>
+            <div id="modal" class="modal hidden">
+                <div class="contenido-modal">
+                    <span class="close-modal">&times;</span>
+                    <img id="modal-banner" src="" alt="Banner del curso">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
+                    <div id="modal-lessons"></div>
+                </div>
+            </div>
+    </main>
+    <script src="js/modal.js"></script>
+    <footer class="footer">
+        <p>Hecho con ❤️ por <a href="https://github.com/dana-villa" target="_blank">Dana Villamizar</a>, <a href="https://github.com/sixthdam" target="_blank">Karina Méndez</a> y <a href="https://github.com/Shiroses" target="_blank"> Santiago Domínguez.</a>
+        </p>
+    </footer>
+</body>
+</html>
