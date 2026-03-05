@@ -3,64 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC · Dashboard Institucional</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="./styles/dashboard.css">
+    <title>ABC | Módulo Administrador</title>
+    <link rel="icon" href="../images/escudo.webp" type="image/webp">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-
+    <!-- Sidebar -->
     <div class="dashboard">
         <aside class="sidebar">
-            <div class="sidebar-bg" style="background-image: url('img/sidebar-bg.jpg');"></div>
+            <div class="sidebar-bg"></div>
             <div class="sidebar-content">
-                
+
                 <div class="sidebar-header">
-                    <img src="./images/escudo.png" alt="Escudo ABC" class="sidebar-escudo">
-                    
+                    <img src="../images/escudo.webp" alt="Escudo ABC" class="sidebar-escudo">
+
                 </div>
 
                 <nav class="sidebar-menu">
                     <ul>
                         <li class="menu-item active" data-path="dashboard">
-                            <img src="img/icon-dashboard.png" alt="" class="menu-icon">
-                            <span>Dashboard Principal</span>
+                            <a href="gestion-cursos.html" class="menu-link">
+                                <img src="../images/dashboard.webp" alt="" class="menu-icon">
+                                <span>Catálogo de Cursos</span>
+                            </a>
                         </li>
                         <li class="menu-item" data-path="cursos">
-                            <img src="img/icon-cursos.png" alt="" class="menu-icon">
-                            <span>Gestión de Cursos</span>
+                            <a href="gestion-cursos.html" class="menu-link">
+                                <img src="../images/gestioncursos.webp" alt="Gestión de Cursos" class="menu-icon">
+                                <span>Gestión de Cursos</span>
+                            </a>
                         </li>
                         <li class="menu-item" data-path="docentes">
-                            <img src="img/icon-docentes.png" alt="" class="menu-icon">
-                            <span>Gestión de Docentes</span>
-                        </li>
-                        <li class="menu-item" data-path="lecciones">
-                            <img src="img/icon-lecciones.png" alt="" class="menu-icon">
-                            <span>Lecciones y Contenidos</span>
+                            <a href="gestion-docentes.html" class="menu-link">
+                                <img src="../images/gestiondocentes.webp" alt="Gestión de Docentes" class="menu-icon">
+                                <span>Gestión de Docentes</span>
+                            </a>
                         </li>
                         <li class="menu-item" data-path="admin">
-                            <img src="img/icon-admin.png" alt="" class="menu-icon">
-                            <span>Módulo Administrador</span>
+                            <a href="modulo-admin.html" class="menu-link">
+                                <img src="../images/administrador.webp" alt="Módulo Administrador" class="menu-icon">
+                                <span>Módulo Administrador</span>
+                            </a>
                         </li>
                     </ul>
                 </nav>
 
                 <div class="sidebar-footer">
                     <div class="cerrar-sesion">
-                        <img src="img/icon-logout.png" alt="" class="menu-icon">
-                        <span>Cerrar Sesión</span>
+                        <a href="" class="menu-link">
+                            <img src="../images/sesion.webp" alt="Cerrar Sesión" class="menu-icon">
+                            <span>Cerrar Sesión</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </aside>
+    </div>
 
         <main class="main-content">
             <header class="main-header">
                 <div class="header-left">
-                    <img src="img/icon-grid.png" alt="Menú" class="icon-grid">
                     <div class="welcome-texts">
                         <h1 class="welcome-title">Bienvenido de nuevo, User Pérez</h1>
                         <p class="welcome-subtitle">Explore el resumen de la institución y administre fácilmente los cursos y docentes.</p>
@@ -69,13 +72,13 @@
 
                 <div class="header-right">
                     <div class="notificacion">
-                        <img src="img/icon-notification.png" alt="Notificaciones" class="icon-notification">
+                        <img src="../images/notificacion.webp" alt="Notificaciones" class="icon-notification">
                         <span class="notificacion-badge">3</span>
                     </div>
                     <div class="avatar-container" id="avatarMenuTrigger">
-                        <img src="img/avatar-user.jpg" alt="User Pérez" class="avatar-img">
+                        <img src="../images/hombre.webp" alt="User Pérez" class="avatar-img">
                         <span class="avatar-nombre">User Pérez</span>
-                        <img src="img/icon-chevron-down.png" alt="" class="icon-chevron">
+                        <img src="" alt="" class="icon-chevron">
                     </div>
                     <button class="btn-crear-curso">
                         <span class="btn-icon">+</span> Crear Curso
@@ -85,7 +88,7 @@
 
             <section class="resumen-cards">
                 <div class="resumen-card card-cursos-activos">
-                    <div class="card-icon"><img src="img/icon-cursos-activos.png" alt=""></div>
+                    <div class="card-icon"><img src="../images/mujer.webp" alt="Cursos Activos"></div>
                     <div class="card-info">
                         <span class="card-label">Cursos Activos</span>
                         <span class="card-number">(15)</span>
@@ -93,7 +96,7 @@
                 </div>
 
                 <div class="resumen-card card-cursos">
-                    <div class="card-icon"><img src="img/icon-cursos-num.png" alt=""></div>
+                    <div class="card-icon"><img src="../images/birrete.webp" alt="Cursos"></div>
                     <div class="card-info">
                         <span class="card-label">Cursos</span>
                         <span class="card-number">(8)</span>
@@ -101,7 +104,7 @@
                 </div>
 
                 <div class="resumen-card card-estudiantes">
-                    <div class="card-icon"><img src="img/icon-estudiantes.png" alt=""></div>
+                    <div class="card-icon"><img src="../images/mujer.webp" alt="Estudiantes"></div>
                     <div class="card-info">
                         <span class="card-label">Estudiantes</span>
                         <span class="card-number">(12)</span>
@@ -109,7 +112,7 @@
                 </div>
 
                 <div class="resumen-card card-administrativos">
-                    <div class="card-icon"><img src="img/icon-administrativos.png" alt=""></div>
+                    <div class="card-icon"><img src="../images/administrador.webp" alt="Administrativos"></div>
                     <div class="card-info">
                         <span class="card-label">Administrativos</span>
                         <span class="card-number">(4)</span>
@@ -122,25 +125,25 @@
                 <div class="accesos-contenedor">
                     <div class="accesos-grid">
                         <div class="acceso-item bg-lecciones">
-                            <img src="img/icon-lecciones-acceso.png" alt="" class="acceso-icon">
+                            <img src="../images/mujer.webp" alt="Lecciones y Contenido" class="acceso-icon">
                             <span>Lecciones & Contenido</span>
                         </div>
                         <div class="acceso-item bg-docentes">
-                            <img src="img/icon-docentes-acceso.png" alt="" class="acceso-icon">
+                            <img src="../images/mujer.webp" alt="Gestionar Docentes" class="acceso-icon">
                             <span>Gestionar Docentes</span>
                         </div>
                         <div class="acceso-item bg-cursos">
-                            <img src="img/icon-cursos-acceso.png" alt="" class="acceso-icon">
+                            <img src="../images/birrete.webp" alt="Gestionar Cursos" class="acceso-icon">
                             <span>Gestionar Cursos</span>
                         </div>
                         <div class="acceso-item bg-administrativos">
-                            <img src="img/icon-administrativos-acceso.png" alt="" class="acceso-icon">
+                            <img src="../images/administrador.webp" alt="Ver Administrativos" class="acceso-icon">
                             <span>Ver Administrativos</span>
                         </div>
                     </div>
 
                     <div class="accesos-ilustracion">
-                        <img src="img/ilustracion-dashboard.png" alt="Personas con pantalla" class="ilustracion-img">
+                        <img src="../images/ilustracion.webp" alt="Personas con pantalla" class="ilustracion-img">
                     </div>
                 </div>
             </section>
