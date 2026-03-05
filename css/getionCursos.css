@@ -278,12 +278,8 @@
 }
 
 /* Diferentes degradados para cada tarjeta (simulando la imagen) */
-.curso-card:nth-child(1) { background: linear-gradient(145deg, #2f79ce, #dbe0e6, #ffffff); } /* azul claro */
-.curso-card:nth-child(2) { background: linear-gradient(145deg, #b82cd4, #dbe0e6, #ffffff); } /* verde claro */
-.curso-card:nth-child(3) { background: linear-gradient(145deg, #6de64f, #dbe0e6, #ffffff); } /* morado claro */
-.curso-card:nth-child(4) { background: linear-gradient(145deg, #d82c8d, #dbe0e6, #ffffff); } /* rosa claro */
-.curso-card:nth-child(5) { background: linear-gradient(145deg, #e0932d, #dbe0e6, #ffffff); } /* naranja claro */
-.curso-card:nth-child(6) { background: linear-gradient(145deg, #368aeb, #dbe0e6, #ffffff); } /* azul cielo */
+.curso-card:nth-child(odd) { background: linear-gradient(145deg, #b82cd4, #dbe0e6, #ffffff); } /* verde claro */
+.curso-card:nth-child(even) { background: linear-gradient(145deg, #368aeb, #dbe0e6, #ffffff); } /* azul cielo */
 
 .curso-card:hover {
     transform: translateY(-6px);
@@ -363,6 +359,11 @@
 .accion-icon:hover {
     opacity: 1;
     transform: scale(1.15);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
 }
 
 /* ===== RESPONSIVE (prioridad desktop) ===== */

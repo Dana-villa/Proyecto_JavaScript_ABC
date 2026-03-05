@@ -1,6 +1,13 @@
 // loginPage.js
 // Mostrar / ocultar contraseña + login con sessionStorage
 
+async function jsonLoader() {
+    const response = await fetch("../json/info-admin.json")
+    const data = await response.json()
+    return data[0]
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
     /* =========================
@@ -25,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
        LOGIN
     ========================== */
 
-    const loginForm = document.getElementById('login-form');
+    const loginForm = document.querySelector('.tarjeta-login');
 
     // Si ya está logueado, redirigir automáticamente
     if (sessionStorage.getItem("isLoggedIn")) {
@@ -33,16 +40,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (loginForm) {
-        loginForm.addEventListener('submit', function (e) {
+        loginForm.addEventListener('submit', async function (e) {
 
             e.preventDefault();
 
-            const email = document.getElementById('username').value.trim();
+            const email = document.getElementById('user-name').value.trim();
             const password = passwordField.value.trim();
 
             // 🔐 Credenciales de prueba
-            const VALID_EMAIL = "admin@abc.com";
-            const VALID_PASS = "1234";
+            const data = await jsonLoader()
+
+            const VALID_EMAIL = data.email;
+            const VALID_PASS = data.password;
 
             if (email === VALID_EMAIL && password === VALID_PASS) {
 

@@ -80,6 +80,10 @@ body {
     flex-shrink: 0;
 }
 
+.active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
 .menu-link {
     display: flex;
     align-items: center;
@@ -130,6 +134,12 @@ main {
 
 .footer a:hover {
     text-shadow: #1f3c88 0px 0px 5px;
+}
+
+.footer a {
+    color: #f5f7fa;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {
