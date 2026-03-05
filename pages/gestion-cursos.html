@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC | Gestión de Cursos</title>
+    <title>Instituto ABC | Gestion cursos</title>
     <link rel="icon" href="../images/escudo.webp" type="image/webp">
-    <link rel="stylesheet" href="../css/getionCursos.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/getionCursos.css">
 </head>
 <body>
     <!-- Sidebar -->
@@ -22,26 +22,26 @@
 
                 <nav class="sidebar-menu">
                     <ul>
-                        <li class="menu-item" data-path="dashboard">
-                            <a href="./catalogo-cursos.html" class="menu-link">
+                        <li class="menu-item active" data-path="dashboard">
+                            <a href="catalogo-cursos.html" class="menu-link">
                                 <img src="../images/dashboard.webp" alt="" class="menu-icon">
-                                <span class="menu-link">Catálogo de Cursos</span>
+                                <span>Catálogo de Cursos</span>
                             </a>
                         </li>
-                        <li class="menu-item active" data-path="cursos">
-                            <a href="#" class="menu-link">
+                        <li class="menu-item" data-path="cursos">
+                            <a href="gestion-cursos.html" class="menu-link">
                                 <img src="../images/gestioncursos.webp" alt="Gestión de Cursos" class="menu-icon">
                                 <span>Gestión de Cursos</span>
                             </a>
                         </li>
                         <li class="menu-item" data-path="docentes">
-                            <a href="./gestion-docentes.html" class="menu-link">
+                            <a href="gestion-docentes.html" class="menu-link">
                                 <img src="../images/gestiondocentes.webp" alt="Gestión de Docentes" class="menu-icon">
                                 <span>Gestión de Docentes</span>
                             </a>
                         </li>
                         <li class="menu-item" data-path="admin">
-                            <a href="./modulo-admin.html" class="menu-link">
+                            <a href="modulo-admin.html" class="menu-link">
                                 <img src="../images/administrador.webp" alt="Módulo Administrador" class="menu-icon">
                                 <span>Módulo Administrador</span>
                             </a>
@@ -61,91 +61,97 @@
         </aside>
     </div>
 
-        <!-- ===== CONTENIDO PRINCIPAL ===== -->
+
         <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <img src="../images/cuad.webp" alt="Menú" class="icon-grid">
+                </div>
+                
+                <div class="header-right">
+                    <div class="notificacion">
+                        <img src="../images/notificacion.webp" class="icon-notification">
+                        <span class="notificacion-badge">3</span>
+                    </div>
+                    <div class="avatar-container">
+                        <img src="../images/hacker.webp" alt="User Pérez" class="avatar-img">
+                        <span class="avatar-nombre">User Pérez</span>
+                        <img src="../images/aba.webp" alt="" class="icon-chevron">
+                    </div>                   
+                </div>
+            </header>
+
             <div class="container">
+                <div class="header-titles">                
+                <h1 class="page-title">Gestión de Cursos</h1>
+                <p class="page-subtitle">Administre, cree y visualice todos los cursos, módulos y lecciones.</p>
+                <button class="btn-crear-curso">
+                    <span class="btn-icon">+</span> Añadir Nuevo Curso</button>
+            </div>
 
-                <!-- Header -->
-                <div class="header-titles">
-                    <button class="btn-crear-curso">
-                        <span class="btn-icon">+</span> Añadir Nuevo Curso
-                    </button>
-                    <h1 class="page-title">Gestión de Cursos</h1>
-                    <p class="page-subtitle">
-                        Administre, cree y visualice todos los cursos, módulos y lecciones.
-                    </p>
+            <div class="search-metrics-row">
+                <div class="search-wrapper">
+                    <img src="../images/busq.webp" alt="Buscar" class="search-icon">
+                    <input type="text" class="search-input" placeholder="Buscar cursos..." id="searchInput">
                 </div>
 
-                <!-- Buscador y métricas -->
-                <div class="search-metrics-row">
-                    <div class="search-wrapper">
-                        <img src="../images/busq.webp" alt="Buscar" class="search-icon">
-                        <input type="text" class="search-input" placeholder="Buscar cursos..." id="searchInput">
-                    </div>
-
-                    <div class="metrics-cards">
-                        <div class="metric-card metric-cursos">
-                            <img src="../images/birrete.webp" class="metric-icon">
-                            <div class="metric-info">
-                                <span class="metric-label">Total Cursos</span>
-                                <span class="metric-number-course"></span>
-                            </div>
+                <div class="metrics-cards">
+                    <div class="metric-card metric-cursos">
+                        <img src="../images/birrete.webp" alt="Cursos" class="metric-icon">
+                        <div class="metric-info">
+                            <span class="metric-label">Total Cursos</span>
+                            <span class="metric-number">(8)</span>
                         </div>
-
-                        <div class="metric-card metric-estudiantes">
-                            <img src="../images/estud.webp" class="metric-icon">
-                            <div class="metric-info">
-                                <span class="metric-label">Total Estudiantes</span>
-                                <span class="metric-number">(120)</span>
-                            </div>
+                    </div>
+                    <div class="metric-card metric-estudiantes">
+                        <img src="../images/estud.webp" alt="Estudiantes" class="metric-icon">
+                        <div class="metric-info">
+                            <span class="metric-label">Total Estudiantes</span>
+                            <span class="metric-number">(120)</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Grid de cursos -->
-                <section class="cursos-grid" id="cursosGrid">
-
-                    <div class="curso-card">
-                        <div class="card-header">
-                            <span class="curso-codigo codigo-azul">MAT101</span>
-                        </div>
-                        <h3 class="curso-titulo">Matemáticas Básicas</h3>
-                        <p class="curso-descripcion">
-                            Introducción al álgebra y geometría
-                        </p>
-                        <div class="curso-profesor">
-                            <img src="../images/hombre.webp" class="icon-profesor">
-                            <span>Prof. Juan Pérez</span>
-                        </div>
-                        <div class="card-acciones">
-                            <img src="../images/ojo.webp" class="accion-icon">
-                            <img src="../images/lapiz.webp" class="accion-icon">
-                            <img src="../images/eliminar.webp" class="accion-icon">
-                        </div>
+            <section class="cursos-grid" id="cursosGrid">
+                <div class="curso-card" data-curso="matematicas basicas algebra geometria">
+                    <div class="card-header">
+                        <span class="curso-codigo codigo-azul">MAT101</span>
                     </div>
-
-                    <div class="curso-card">
-                        <div class="card-header">
-                            <span class="curso-codigo codigo-verde">HIS403</span>
-                        </div>
-                        <h3 class="curso-titulo">Historia Universal</h3>
-                        <p class="curso-descripcion">
-                            Resumen de las civilizaciones antiguas
-                        </p>
-                        <div class="curso-profesor">
-                            <img src="../images/mujer.webp" class="icon-profesor">
-                            <span>Prof. María López</span>
-                        </div>
-                        <div class="card-acciones">
-                            <img src="../images/ojo.webp" class="accion-icon">
-                            <img src="../images/lapiz.webp" class="accion-icon">
-                            <img src="../images/eliminar.webp" class="accion-icon">
-                        </div>
+                    <h3 class="curso-titulo">Matemáticas Básicas</h3>
+                    <p class="curso-descripcion">Introducción al álgebra y geometría</p>
+                    <div class="curso-profesor">
+                        <img src="../images/hombre.webp" alt="" class="icon-profesor">
+                        <span>Prof. Juan Pérez</span>
                     </div>
+                    <div class="card-acciones">
+                        <img src="../images/ojo.webp" alt="Ver" class="accion-icon">
+                        <img src="../images/lapiz.webp" alt="Editar" class="accion-icon">
+                        <img src="../images/eliminar.webp" alt="Eliminar" class="accion-icon">
+                    </div>
+                </div>
+
+                <div class="curso-card" data-curso="historia universal civilizaciones antiguas">
+                    <div class="card-header">
+                        <span class="curso-codigo codigo-verde">HIS403</span>
+                    </div>
+                    <h3 class="curso-titulo">Historia Universal</h3>
+                    <p class="curso-descripcion">Resumen de las civilizaciones antiguas</p>
+                    <div class="curso-profesor">
+                        <img src="../images/mujer.webp" alt="" class="icon-profesor">
+                        <span>Prof. María López</span>
+                    </div>
+                    <div class="card-acciones">
+                        <img src="../images/ojo.webp" alt="Ver" class="accion-icon">
+                        <img src="../images/lapiz.webp" alt="Editar" class="accion-icon">
+                        <img src="../images/eliminar.webp" alt="Eliminar" class="accion-icon">
+                    </div>
+                </div>
 
                 </section>
-
             </div>
+            
+            
         </main>
         <div>
             <form id="courseForm" class="form-container">
@@ -182,6 +188,4 @@
             </form>
         </div>
 </body>
-<script src="../js/cursos.js"></script>
-
 </html>
