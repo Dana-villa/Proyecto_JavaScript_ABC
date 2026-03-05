@@ -39,19 +39,19 @@ function renderCards(list = modules) {
 
 
 const form = document.querySelector("#courseForm")
-function submitCourse(){
+
+async function submitCourse(){
     const formData = new FormData(form)
     const data = Object.fromEntries(formData.entries())
+
     localStorage.setItem('formSnapshot', JSON.stringify(data))
-    console.table(localStorage)
 }
 
 document.querySelector(".btn-crear-curso").addEventListener("click", () => {
     
     document.querySelector(".form-container").classList.add("active")
-    document.querySelector(".submit-btn").addEventListener("submit", function(e){
-        e.preventDefault();
-        submitCourse();
+    document.querySelector(".submit-btn").addEventListener("click", async function(e){
+        await submitCourse();
     })
 })
 document.querySelector(".close-btn").addEventListener("click", () => {
