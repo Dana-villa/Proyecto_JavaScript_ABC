@@ -46,7 +46,7 @@ body {
     flex-direction: column;
     height: 100%;
     padding: 2rem 1.5rem;
-    background: url(./lateral.jpg);
+    background: url(../images/lateral.jpg);
     backdrop-filter: brightness(0.8);
 }
 

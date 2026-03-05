@@ -50,7 +50,7 @@
     flex-direction: column;
     height: 100%;
     padding: 2rem 1.5rem;
-    background: url(./lateral.jpg);
+    background: url(../images/lateral.jpg);
     backdrop-filter: brightness(0.8);
 }
 
@@ -94,8 +94,8 @@
 }
 
 .menu-item.active {
-    background: rgba(255, 255, 255, 0.12);
     color: white;
+    background: rgba(255, 255, 255, 0.12);    
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -138,6 +138,7 @@
 .main-content {
     flex: 1;
     overflow-y: auto;
+    
 }
 
 .container {
@@ -255,11 +256,15 @@
 
 /* ===== ÁREA DE DISPLAY (Tarjetas + Ilustración) ===== */
 .dashboard-display {
-    padding: 0 3rem;
+    padding: 3rem 3rem;
+    margin-left: 40px;
+    margin-right: 40px;
+    border-radius: 20px;
     display: flex;
     gap: 2rem;
     align-items: flex-start;
     position: relative;
+    background-image: url(../images/Diseño\ sin\ título\ \(13\).png);
 }
 
 .cards-container {
@@ -273,7 +278,7 @@
     background: white;
     border-radius: 20px;
     padding: 1.5rem;
-    width: 280px;
+    width: 350px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     position: relative;
     overflow: hidden;
@@ -303,7 +308,7 @@
 }
 
 .card-img {
-    width: 80px;
+    width: 150px;
     height: auto;
     display: block;
     margin: 1rem 0;
