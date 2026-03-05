@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC · Institución Educativa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./styles/loginPage.css">
+</head>
+<body>
+
+    <div class="fondo"></div>
+
+    <main class="contenedor-principal">
+        
+        <div class="lado-izquierdo">
+            <div class="header-izquierdo">
+                <img src="./images/escudo.png" alt="Escudo ABC" class="escudo">
+            </div>
+
+            <div class="ilustracion-personas">
+                <img src="./images/ilustracion3.png" alt="Personas estudiando" class="img-personas">
+            </div>
+
+        </div>
+        <div class="lado-derecho">
+            <div class="tarjeta-login">
+                <h1 class="titulo-bienvenida">Bienvenidos de nuevo</h1>
+                <p class="subtitulo">Acceda a su cuenta para continuar.</p>
+
+                <div class="campo">
+                    <img src="./images/correo.png" alt="Correo">
+                    <input type="email" placeholder="Correo electrónico" class="input-campo">
+                </div>
+
+                <div class="campo">
+                    <img src="./images/contra.png" alt="Contraseña">
+                    <input type="password" placeholder="Contraseña" id="password-field" class="input-campo">
+                </div>
+
+                <div class="olvidado-wrapper">
+                    <a href="#" class="olvidado">¿Olvidó su contraseña?</a>
+                </div>
+
+                <button class="btn-iniciar">Iniciar Sesión</button>
+
+                <div class="pie-registro">
+                    <a href="#" class="olvidado">¿Olvidó su contraseña?</a>
+                    <h3 href="#" class="link-registro">Registrarse</h3>
+                </div>
+            </div>
+    </main>
+
+    <script src="./scripts/loginPage.js"></script>
+</body>
+</html>
