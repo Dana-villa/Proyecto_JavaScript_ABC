@@ -1,9 +1,17 @@
 // dashboard.js - Interacciones visuales mínimas para el dashboard
 
-document.addEventListener('DOMContentLoaded', function() {
+
+
+async function jsonHandler(file) {
+    const response = await fetch(file)
+    const data = await response.json();
+    return data
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
     // ===== 1. MANEJO DEL ÍTEM ACTIVO EN EL MENÚ LATERAL =====
     const menuItems = document.querySelectorAll('.menu-item');
-    
+    const data = await jsonHandler("../json/info-admin.json")
     // Función para quitar la clase 'active' de todos y ponerla en el clicado
     function setActiveMenuItem(clickedItem) {
         menuItems.forEach(item => {
@@ -79,4 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Tienes 3 notificaciones nuevas (simulación)');
         });
     }
+    document.querySelector(".welcome-title").textContent = `Bienvenido de Vuelta, ${data[0].name}`
+    document.querySelector(".avatar-nombre").textContent = `${data[0].name}`
 });
+
+
