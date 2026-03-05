@@ -8,16 +8,63 @@
     <title>Instituto ABC | Inicio</title>
 </head>
 <body>
-    <!-- Header -->
-         <header class="main-header">
-        <div class="logo">
-            <a href="../index.html"><img src="../images/escudo.webp" alt="Logo Instituto ABC" class="logo"></a>
-        </div>
-        <nav class="botones-header">
-            <a href="../index.html" class="btn login">Iniciar sesión</a>
-            <a href="#" class="btn register">Registrarse</a>
-        </nav>
-    </header>
+    <!-- Sidebar -->
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-bg"></div>
+            <div class="sidebar-content">
+
+                <div class="sidebar-header">
+                    <img src="../images/escudo.webp" alt="Escudo ABC" class="sidebar-escudo">
+
+                </div>
+
+                <nav class="sidebar-menu">
+                    <ul>
+                        <li class="menu-item active" data-path="dashboard">
+                            <a href="dashboard-cursos.html" class="menu-link">
+                                <img src="../images/contenido.svg" alt="" class="menu-icon">
+                                <span>Catálogo de Cursos</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-path="cursos">
+                            <a href="" class="menu-link">
+                                <img src="../images/gestioncursos.svg" alt="" class="menu-icon">
+                                <span>Gestión de Cursos</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-path="docentes">
+                            <a href="" class="menu-link">
+                                <img src="../images/gestiondocentes.svg" alt="" class="menu-icon">
+                                <span>Gestión de Docentes</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-path="lecciones">
+                            <a href="" class="menu-link">
+                                <img src="../images/contenido.svg" alt="" class="menu-icon">
+                                <span>Lecciones y Contenidos</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-path="admin">
+                            <a href="" class="menu-link">
+                                <img src="../images/administrador.svg" alt="" class="menu-icon">
+                                <span>Módulo Administrador</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="cerrar-sesion">
+                        <a href="" class="menu-link"</a>
+                            <img src="../images/sesion.svg" alt="" class="menu-icon">
+                            <span>Cerrar Sesión</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
 
     <!-- contenido principal de la página -->
     <main>
@@ -27,17 +74,16 @@
         </section>
 
         <!-- Tarjetas de cursos -->
-         <section class="grid-cursos"></section>
-
-        <div id="modal" class="modal hidden">
-            <div class="contenido-modal">
-                <span class="close-modal">&times;</span>
-                <img id="modal-banner" src="" alt="Banner del curso">
-                <h2 id="modal-title"></h2>
-                <p id="modal-description"></p>
-                <div id="modal-lessons"></div>
+        <section class="grid-cursos"></section>
+            <div id="modal" class="modal hidden">
+                <div class="contenido-modal">
+                    <span class="close-modal">&times;</span>
+                    <img id="modal-banner" src="" alt="Banner del curso">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
+                    <div id="modal-lessons"></div>
+                </div>
             </div>
-        </div>
     </main>
     <script src="../js/modal.js"></script>
     <footer class="footer">

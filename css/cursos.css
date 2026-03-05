@@ -1,42 +1,45 @@
-body.modal-open {
+body.modal-open, html.modal-open {
     overflow: hidden;
 }
 
 main {
+    margin-left: var(--sidebar-width);
+    width: calc(100vw - var(--sidebar-width));
+    min-height: 100vh;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    flex: 1;
     align-items: center;
-    padding: 40px;
-
+    overflow-x: hidden;
 }
 
 h1 {
     font-size: 32px;
     margin-bottom: 30px;
     color: #1f3c88;
-}
-.buscador {
-    margin-bottom: 30px;
     text-align: center;
-    width: 500px;
+}
+
+.buscador {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
 }
 
 .buscador input {
     width: 100%;
-    max-width: 500px;
     padding: 12px 15px;
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 16px;
 }
 
-
 .grid-cursos {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 250px);
     gap: 25px;
-    max-width: 1200px;
 }
 
 .tarjeta-cursos {
@@ -73,13 +76,15 @@ h1 {
 .modal {
     position: fixed;
     inset: 0;
+    z-index: 9999;
     background-color: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    transition: opacity 0.3s ease;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .modal:not(.hidden) {
@@ -89,14 +94,16 @@ h1 {
 
 .contenido-modal {
     position: relative;
+    text-align: justify;
     background-color: white;
-    width: 100%;
-    max-width: 750px;
-    max-height: 85vh;
+    width: 75%;
+    max-width: 1000px;
+    max-height: 90vh;
     overflow-y: auto;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 40px;
+    padding-bottom: 80px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
 .contenido-modal img {
@@ -108,9 +115,67 @@ h1 {
     margin-bottom: 20px;
 }
 
+.contenido-modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.contenido-modal::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+#modal-lessons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#modal-lessons details {
+    background: #f8f9fb;
+    border: 1px solid #e2e6f0;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.2s ease;
+}
+
+#modal-lessons details:hover {
+    background: #f1f4fa;
+}
+
+#modal-lessons summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1f3c88;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#modal-lessons summary::-webkit-details-marker {
+    display: none;
+}
+
+#modal-lessons summary::after {
+    content: "▸";
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+#modal-lessons details[open] summary::after {
+    transform: rotate(90deg);
+}
+
+#modal-lessons details > *:not(summary) {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
 .close-modal {
     position: absolute;
-    top: 12px;
+    top: 8px;
     right: 15px;
     font-size: 26px;
     border: none;
@@ -130,4 +195,8 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+html, body {
+    overflow-x: hidden;
 }
