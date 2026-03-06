@@ -60,56 +60,76 @@
         </aside>
     </div>
 
-    <main>
-    <h1 class="titulo">Gestión de Docentes</h1>
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-left">
+                <div class="welcome-texts">
+                    <h1 class="welcome-title"></h1>
+                </div>
+            </div>
 
-    <section class="buscador">
-        <input type="text" placeholder="Buscar docentes..." aria-label="Buscar docentes" class="search-input" id="buscarDocente">
-        <button id="nuevoDocente" class="btn-crear">+ Nuevo docente</button>
-    </section>
+            <div class="header-right">
+                <div class="notificacion">
+                    <img src="../images/notificacion.webp" alt="Notificaciones" class="icon-notification">
+                    <span class="notificacion-badge">3</span>
+                </div>
+                <div class="avatar-container" id="avatarMenuTrigger">
+                    <img src="../images/hombre.webp" alt="User Pérez" class="avatar-img">
+                    <span class="avatar-nombre"></span>
+                    <img src="" alt="" class="icon-chevron">
+                </div>
+            </div>
+        </header>
 
-    <section class="grid-docentes" id="docentesContainer"></section>
+        <h1 class="titulo">Gestión de Docentes</h1>
 
-    <div id="modalDocente" class="modal hidden">
-        <div class="contenido-modal docente-modal">
+        <section class="buscador">
+            <input type="text" placeholder="Buscar docentes..." aria-label="Buscar docentes" class="search-input" id="buscarDocente">
+            <button id="nuevoDocente" class="btn-crear">+ Nuevo docente</button>
+        </section>
 
-        <span class="close-modal" id="cerrarModal">&times;</span>
+        <section class="grid-docentes" id="docentesContainer"></section>
 
-        <h2 id="modalTitulo">Nuevo docente</h2>
+        <div id="modalDocente" class="modal hidden">
+            <div class="contenido-modal docente-modal">
 
-        <form id="formDocente">
-            <input type="hidden" id="docenteId">
+            <span class="close-modal" id="cerrarModal">&times;</span>
 
-            <label>Nombre</label>
-            <input type="text" id="nombre" required>
+            <h2 id="modalTitulo">Nuevo docente</h2>
 
-            <label>Especialidad</label>
-            <input type="text" id="especialidad" required>
+            <form id="formDocente">
+                <input type="hidden" id="docenteId">
 
-            <label for="edad">Edad</label>
-            <input type="number" id="edad" name="edad" min="18" max="100" required>
+                <label>Nombre</label>
+                <input type="text" id="nombre" required>
 
-            <label for="genero">Género</label>
-            <select id="genero" name="genero" required>
-                <option value="">Seleccionar</option>
-                <option value="hombre">Hombre</option>
-                <option value="mujer">Mujer</option>
-                <option value="no_binario">No binario</option>
-            </select>
+                <label>Especialidad</label>
+                <input type="text" id="especialidad" required>
 
-            <label>Email</label>
-            <input type="email" id="email">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad" min="18" max="100" required>
 
-            <label>Teléfono</label>
-            <input type="text" id="telefono">
+                <label for="genero">Género</label>
+                <select id="genero" name="genero" required>
+                    <option value="">Seleccionar</option>
+                    <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                    <option value="no_binario">No binario</option>
+                </select>
 
-            <button type="submit" class="btn-guardar">
-            Guardar docente
-            </button>
-        </form>
+                <label>Email</label>
+                <input type="email" id="email">
 
+                <label>Teléfono</label>
+                <input type="text" id="telefono">
+
+                <button type="submit" class="btn-guardar">
+                Guardar docente
+                </button>
+            </form>
+
+            </div>
         </div>
-    </div>
 
     </main>
 
@@ -118,6 +138,7 @@
         </p>
     </footer>
 </body>
+    <script src="../js/header.js"></script>
     <script src="../js/gestionDocentes.js"></script>
 
 </html>

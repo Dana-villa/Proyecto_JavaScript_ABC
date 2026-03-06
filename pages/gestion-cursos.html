@@ -61,23 +61,23 @@
         </aside>
     </div>
 
-
         <main class="main-content">
             <header class="main-header">
                 <div class="header-left">
-                    <img src="../images/cuad.webp" alt="Menú" class="icon-grid">
+                    <div class="welcome-texts">
+                        <h1 class="welcome-title"></h1>
+                    </div>
                 </div>
-                
+
                 <div class="header-right">
                     <div class="notificacion">
-                        <img src="../images/notificacion.webp" class="icon-notification">
+                        <img src="../images/notificacion.webp" alt="Notificaciones" class="icon-notification">
                         <span class="notificacion-badge">3</span>
                     </div>
-                    <div class="avatar-container">
-                        <img src="../images/hacker.webp" alt="User Pérez" class="avatar-img">
-                        <span class="avatar-nombre">User Pérez</span>
-                        <img src="../images/aba.webp" alt="" class="icon-chevron">
-                    </div>                   
+                    <div class="avatar-container" id="avatarMenuTrigger">
+                        <img src="../images/hombre.webp" alt="User Pérez" class="avatar-img">
+                        <span class="avatar-nombre"></span>
+                    </div>
                 </div>
             </header>
 
@@ -150,9 +150,7 @@
 
                 </section>
             </div>
-            
-            
-        </main>
+
         <div>
             <form id="courseForm" class="form-container">
                 <h2>Crear Nuevo Curso</h2>
@@ -187,9 +185,12 @@
                 <button type="submit" class="submit-btn">Guardar Curso (JSON)</button>
             </form>
         </div>
+        </main>
     <footer class="footer">
         <p>Hecho con ❤️ por <a href="https://github.com/dana-villa" target="_blank">Dana Villamizar</a>, <a href="https://github.com/sixthdam" target="_blank">Karina Méndez</a> y <a href="https://github.com/Shiroses" target="_blank"> Santiago Domínguez.</a>
         </p>
     </footer>
 </body>
+    <script src="../js/header.js"></script>
+    <script src="../js/gestionCursos.js"></script>
 </html>

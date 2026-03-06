@@ -2,24 +2,6 @@ body.modal-open, html.modal-open {
     overflow: hidden;
 }
 
-main {
-    margin-left: var(--sidebar-width);
-    width: calc(100vw - var(--sidebar-width));
-    min-height: 100vh;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-}
-
-h1 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    color: #1f3c88;
-    text-align: center;
-}
-
 .buscador {
     width: 100%;
     max-width: 600px;
