@@ -1,0 +1,200 @@
+#formDocente {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+#formDocente label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+#formDocente input,
+#formDocente select {
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    background: white;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+#formDocente select {
+    cursor: pointer;
+}
+
+#formDocente input:focus,
+#formDocente select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.buscador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border-radius: 40px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    background: white;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn-crear,
+.btn-guardar {
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 0.7rem 1.6rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 10px 18px -6px #1e4fba;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-crear {
+    white-space: nowrap;
+}
+
+.btn-guardar {
+    margin-top: 1rem;
+    align-self: flex-end;
+}
+
+.btn-crear:hover,
+.btn-guardar:hover {
+    background: #1d4ed8;
+    transform: scale(1.03);
+}
+
+.btn-crear:active,
+.btn-guardar:active {
+    transform: scale(0.97);
+}
+
+.grid-docentes {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 25px;
+}
+
+.docente-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.15s;
+
+}
+
+.docente-card:hover{
+    transform: translateY(-3px);
+}
+
+.card-acciones {
+
+    display: flex;
+    gap: 12px;
+
+    margin-top: 10px;
+
+}
+
+.accion-icon {
+
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+
+    opacity: 0.7;
+
+    transition: transform 0.15s, opacity 0.15s;
+
+}
+
+.accion-icon:hover{
+
+    opacity: 1;
+    transform: scale(1.1);
+
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+    animation: fadeModal 0.2s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.docente-modal {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem 2rem 1.8rem 2rem;
+
+    width: 420px;
+    max-width: 90%;
+
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.25);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    position: relative;
+}
+
+.docente-modal h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.close-modal {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    color: #64748b;
+
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #1e293b;
+}

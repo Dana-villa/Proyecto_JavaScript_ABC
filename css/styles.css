@@ -1,159 +1,335 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: system-ui, -apple-system, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    line-height: 1.5;
+:root{
+    --sidebar-width:250px;
+    --primary:#1f3c88;
 }
 
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: #1f3c88;
-}
-
-.logo img {
-    height: 45px;
-}
-
-.botones-header {
-    display: flex;
-    gap: 15px;
-}
-
-.btn {
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: 0.2s ease;
-}
-
-.login {
-    background-color: transparent;
-    color: white;
-    border: 1px solid white;
-}
-
-.register {
-    background-color: #ff6b6b;
-    color: white;
-}
-
-main {
-    padding: 40px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.buscador {
-    margin-bottom: 30px;
+h1 {
+    font-size: 32px;
+    color: #1f3c88;
     text-align: center;
 }
 
-.buscador input {
-    width: 100%;
-    max-width: 500px;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
+body{
+    font-family:system-ui,-apple-system,sans-serif;
+    background:linear-gradient(rgba(255,255,255,.2),rgba(255,255,255,.2)),url(../images/Fondo.webp) no-repeat center center fixed;
+    background-size:cover;
+    background-color:#f5f7fa;
+    color:#333;
+    line-height:1.5;
+    min-height:100vh;
 }
 
-.grid-cursos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+.main-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:90px;
+    min-height:90px;
+    max-height:90px;
+    padding:0 2rem;
+    margin-bottom:2rem;
+    backdrop-filter:blur(10px);
+    background:transparent;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.35);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    flex-shrink:0;
 }
 
-.tarjeta-cursos {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:1rem;
 }
 
-.tarjeta-cursos:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+.welcome-title{
+    font-size:1.5rem;
+    color:#1f3c88;
 }
 
-.tarjeta-cursos img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
-
-.tarjeta-cursos h3 {
-    font-size: 18px;
-    padding: 15px 15px 5px 15px;
-}
-
-.tarjeta-cursos p {
-    font-size: 14px;
-    padding: 0 15px 15px 15px;
-    color: #666;
-}
-
-.modal {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0,0,0,0.6);
-    display: none;
-    justify-content: center;
+.header-right {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 20px;
+    gap: 1.5rem;
 }
 
-.contenido-modal {
-    background-color: white;
-    width: 100%;
-    max-width: 700px;
-    border-radius: 10px;
-    padding: 25px;
+.notificacion {
     position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 22px;
-    border: none;
-    background: none;
     cursor: pointer;
 }
 
-.contenedor-video {
-    margin-top: 15px;
+.icon-notification {
+    width: 28px;
+    height: 28px;
 }
 
-.main-footer {
-    margin-top: 60px;
-    padding: 20px;
-    text-align: center;
-    background-color: #1f3c88;
+.notificacion-badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: #e74c3c;
     color: white;
-    font-size: 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        gap: 15px;
+.avatar-container {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+    border-radius: 40px;
+    background: white;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+    transition: background 0.2s;
+}
+
+.avatar-container:hover {
+    background: #f1f5f9;
+}
+
+.avatar-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.avatar-nombre {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.avatar-dropdown{
+    position:absolute;
+    top:70px;
+    right:40px;
+    background:white;
+    border-radius:14px;
+    min-width:170px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.18);
+    padding:.5rem 0;
+    display:none;
+    z-index:999;
+}
+
+.avatar-dropdown.show{
+    display:block;
+}
+
+.avatar-dropdown ul{
+    list-style:none;
+}
+
+.avatar-dropdown li{
+    padding:.7rem 1.2rem;
+    cursor:pointer;
+    font-size:.9rem;
+    color:#334155;
+    transition:.15s;
+}
+
+.avatar-dropdown li:hover{
+    background:#f1f5f9;
+}
+
+.btn-crear-curso{
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:40px;
+    padding:.6rem 1.3rem;
+    font-size:.9rem;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 10px 18px -6px #1e4fba;
+    transition:.2s;
+}
+
+.btn-crear-curso:hover{
+    background:#1d4ed8;
+    transform:scale(1.03);
+}
+
+.btn-crear-curso:active{
+    transform:scale(.96);
+}
+
+.btn-icon{
+    font-size:1.2rem;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:var(--sidebar-width);
+    height:100vh;
+    background:rgba(7,41,125,0.52);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-right:1px solid rgba(255,255,255,0.2);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    box-shadow:4px 0 20px rgba(0,0,0,0.2);
+}
+
+.sidebar-content{
+    display:flex;
+    flex-direction:column;
+
+    height:100%;
+    padding:2rem 1.5rem;
+
+    background:url(../images/lateral.webp);
+    background-size:cover;
+    background-position:center;
+
+    opacity:.7;
+}
+
+.sidebar-header{
+    display:flex;
+    justify-content:center;
+    margin-bottom:32px;
+}
+
+.sidebar-escudo{
+    width:200px;
+}
+
+.sidebar-menu ul{
+    list-style:none;
+}
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:12px;
+    margin-bottom:5px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:500;
+    font-size:.95rem;
+
+    color:rgba(255,255,255,.85);
+
+    transition:.2s;
+}
+
+.menu-item.active{
+    background:rgba(255,255,255,0.12);
+    color:white;
+}
+
+.menu-item:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+.menu-icon{
+    width:20px;
+    height:20px;
+}
+
+.menu-link{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:inherit;
+}
+
+.sidebar-footer{
+    margin-top:auto;
+}
+
+.cerrar-sesion{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:12px;
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.cerrar-sesion:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+/* ---------- MAIN ---------- */
+
+main{
+    margin-left:var(--sidebar-width);
+    padding:40px;
+    min-height:100vh;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer{
+    margin-left:var(--sidebar-width);
+    padding:20px;
+
+    text-align:center;
+
+    backdrop-filter:blur(8px);
+    border-top:1px solid rgba(255,255,255,0.2);
+
+    font-size:x-small;
+}
+
+.footer a{
+    color:#1f3c88;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.footer a:hover{
+    text-shadow:#1f3c88 0 0 5px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width:768px){
+
+    :root{
+        --sidebar-width:200px;
     }
 
-    main {
-        padding: 20px;
+    main{
+        margin-left:var(--sidebar-width);
+        padding:20px;
+    }
+
+    .footer{
+        margin-left:var(--sidebar-width);
     }
 }

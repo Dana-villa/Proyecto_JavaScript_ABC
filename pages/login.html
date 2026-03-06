@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto ABC | Login</title>
+    <link rel="icon" href="../images/escudo.webp" type="image/webp">
+    <link rel="stylesheet" href="../css/loginPage.css">
+</head>
+<body>
+
+    <div class="fondo"></div>
+
+    <main class="contenedor-principal">
+        <div class="lado-izquierdo">
+            <div class="header-izquierdo">
+                <img src="../images/escudo.webp" alt="Escudo ABC" class="escudo">
+            </div>
+
+            <div class="ilustracion-personas">
+                <img src="../images/ilustracion3.webp" alt="Personas estudiando" class="img-personas">
+            </div>
+        </div>
+        
+        <div class="lado-derecho">
+            <form class="tarjeta-login">
+                <h1 class="titulo-bienvenida">Bienvenido de nuevo.</h1>
+                <p class="subtitulo">Acceda a su cuenta para continuar.</p>
+
+                <div class="campo">
+                    <img src="../images/correo.webp" alt="Correo">
+                    <input type="email" placeholder="Correo electrónico" id="user-name" class="input-campo" required>
+                </div>
+
+                <div class="campo">
+                    <img src="../images/contra.webp" alt="Contraseña">
+                    <input type="password" placeholder="Contraseña" id="password-field" class="input-campo" required>
+                </div>
+
+                <div class="olvidado-wrapper">
+                    <a href="#" class="olvidado">¿Olvidó su contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn-iniciar">Iniciar Sesión</button>
+
+                <div class="pie-registro">
+                    <a href="#" class="olvidado">¿Olvidó su contraseña?</a>
+                    <h3 href="#" class="link-registro">Registrarse</h3>
+                </div>
+            </form>
+    </main>
+
+    <script src="../js/loginPage.js"></script>
+</body>
+</html>

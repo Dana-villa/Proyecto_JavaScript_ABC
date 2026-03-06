@@ -1,0 +1,181 @@
+[
+    {
+        "id": 1,
+        "title": "Curso de Desarrollo Web",
+        "shortDescription": "Introducción a HTML, CSS y fundamentos digitales",
+        "longDescription": "Aprende a crear sitios web desde cero con HTML y CSS. Este curso cubre los fundamentos del desarrollo web, incluyendo estructura, estilos y diseño responsivo.",
+        "banner": "../images/desarrollo-web.webp",
+        "lessons": [
+            {
+                "title": "Introducción a HTML",
+                "content": "En esta lección, aprenderás los conceptos básicos de HTML, la estructura de una página web y cómo crear tu primera página.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+
+            {
+                "title": "Fundamentos de CSS",
+                "content": "Descubre cómo estilizar tu sitio web con CSS. Aprenderás sobre selectores, propiedades y cómo crear diseños atractivos.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            }
+        ]
+    },
+
+    {
+        "id": 2,
+        "title": "Curso de JavaScript",
+        "shortDescription":"Aprende JavaScript desde cero, el lenguaje de programación más popular para desarrollo web",
+        "longDescription": "Este curso te llevará a través de los conceptos básicos de JavaScript, desde variables y funciones hasta objetos y eventos. Al finalizar, podrás crear interactividad en tus sitios web así como también en aplicaciones móviles.",
+        "banner": "../images/js.webp",
+        "lessons": [
+            {
+                "title": "Introducción a JavaScript",
+                "content": "En esta lección, aprenderás los conceptos básicos de JavaScript, la estructura de una página web y cómo crear tu primera página.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+
+            {
+                "title": "Fundamentos de CSS",
+                "content": "Descubre cómo estilizar tu sitio web con CSS. Aprenderás sobre selectores, propiedades y cómo crear diseños atractivos.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            }
+        ]
+    },
+    
+    {
+        "id": 3,
+        "title": "Introducción a la Inteligencia Artificial",
+        "shortDescription":"Aprende los conceptos básicos de la inteligencia artificial y cómo se aplica en el mundo real",
+        "longDescription": "Este curso te introducirá a los conceptos fundamentales de la Inteligencia Artificial y sus aplicaciones en la vida cotidiana. Aprenderás sobre aprendizaje automático, redes neuronales y cómo la IA está transformando diversas industrias.",
+        "banner": "../images/ai.webp",
+        "lessons": [
+            {
+                "title": "¿Qué es la Inteligencia Artificial?",
+                "content": "En esta lección, aprenderás qué es la Inteligencia Artificial, sus aplicaciones y cómo está transformando el mundo.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+            {
+                "title": "Aplicaciones de la IA",
+                "content": "Descubre las diversas aplicaciones de la IA en campos como la medicina, el transporte y la industria.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg"
+            }
+        ]
+    },
+
+    {
+        "id": 4,
+        "title": "Curso Avanzado de Ciberseguridad",
+        "shortDescription": "Aprende técnicas avanzadas para proteger tus sistemas y datos",
+        "longDescription": "Este curso avanzado de ciberseguridad te enseñará técnicas y estrategias para proteger tus sistemas y datos contra amenazas cibernéticas. Aprenderás sobre criptografía, análisis de vulnerabilidades y cómo implementar medidas de seguridad efectivas.",
+        "banner": "../images/cyber-security.webp",
+        "lessons": [
+            {
+                "title": "Criptografía Avanzada",
+                "content": "En esta lección, aprenderás sobre técnicas avanzadas de criptografía y cómo proteger tus datos de manera efectiva.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+            {
+                "title": "Análisis de Vulnerabilidades",
+                "content": "Descubre cómo identificar y analizar vulnerabilidades en tus sistemas para fortalecer tu seguridad.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Análisis de Datos con Python",
+        "shortDescription": "Aprende a analizar datos utilizando Python y sus bibliotecas",
+        "longDescription": "Este curso te enseñará cómo analizar datos utilizando Python y sus bibliotecas populares como Pandas, NumPy y Matplotlib. Aprenderás a limpiar, visualizar y extraer información valiosa de tus conjuntos de datos.",
+        "banner": "../images/python.webp",
+        "lessons": [
+            {
+                "title": "Introducción al Análisis de Datos",
+                "content": "En esta lección, aprenderás los conceptos básicos del análisis de datos y cómo utilizar Python para comenzar tu análisis.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+            {
+                "title": "Visualización de Datos",
+                "content": "Descubre cómo crear visualizaciones efectivas para comunicar tus hallazgos de manera clara y atractiva.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg"
+            }
+        ]
+    },
+
+    {
+        "id": 6,
+        "title": "Marketing Digital",
+        "shortDescription": "Aprende estrategias de marketing digital para promocionar tu negocio en línea",
+        "longDescription": "Este curso de marketing digital te enseñará estrategias efectivas para promocionar tu negocio en línea. Aprenderás sobre SEO, publicidad en redes sociales, email marketing y cómo crear campañas exitosas para atraer y retener clientes.",
+        "banner": "../images/digital-marketing.webp",
+        "lessons": [
+            {
+                "title": "Introducción al Marketing Digital",
+                "content": "En esta lección, aprenderás los conceptos básicos del marketing digital y cómo puede beneficiar a tu negocio.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+            {
+                "title": "Estrategias de SEO",
+                "content": "Descubre cómo optimizar tu sitio web para los motores de búsqueda y mejorar tu visibilidad en línea.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg"
+            }
+        ]
+    },
+
+    {
+        "id": 7,
+        "title": "Diseño UX/UI",
+        "shortDescription": "Aprende los principios de diseño UX/UI para crear experiencias digitales atractivas",
+        "longDescription": "Este curso de diseño UX/UI te enseñará los principios fundamentales para crear experiencias digitales atractivas y funcionales. Aprenderás sobre investigación de usuarios, diseño de interfaces, prototipado y cómo mejorar la usabilidad de tus productos digitales.",
+        "banner": "../images/uiux.webp",
+        "lessons": [
+            {
+                "title": "Introducción al Diseño UX/UI",
+                "content": "En esta lección, aprenderás los conceptos básicos del diseño UX/UI y cómo puede mejorar la experiencia de tus usuarios.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+            {
+                "title": "Principios de Diseño de Interfaces",
+                "content": "Descubre los principios clave para diseñar interfaces atractivas y fáciles de usar.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Introducción a las bases de datos",
+        "shortDescription": "Aprende los conceptos básicos de las bases de datos y cómo gestionarlas",
+        "longDescription": "Este curso te introducirá a los conceptos fundamentales de las bases de datos, incluyendo modelos de datos, SQL y cómo diseñar y gestionar bases de datos efectivas para tus aplicaciones.",
+        "banner": "../images/db.webp",
+        "lessons": [
+            {
+                "title": "¿Qué es una base de datos?",
+                "content": "En esta lección, aprenderás qué es una base de datos, sus tipos y cómo se utilizan en el mundo digital.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+            {
+                "title": "Introducción a SQL",
+                "content": "Descubre los fundamentos de SQL, el lenguaje de consulta para gestionar bases de datos relacionales.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg"
+            }
+        ]
+    },
+
+    {
+        "id": 9,
+        "title": "Desarrollo de Aplicaciones Móviles",
+        "shortDescription": "Aprende a crear aplicaciones móviles para Android e iOS",
+        "longDescription": "Este curso te enseñará cómo desarrollar aplicaciones móviles para Android e iOS utilizando herramientas y frameworks populares. Aprenderás sobre diseño de interfaces móviles, desarrollo multiplataforma y cómo publicar tus aplicaciones en las tiendas de aplicaciones.",
+        "banner": "../images/mobile-dev.webp",
+        "lessons": [
+            {
+                "title": "Introducción al Desarrollo Móvil",
+                "content": "En esta lección, aprenderás los conceptos básicos del desarrollo móvil y las diferencias entre Android e iOS.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            },
+            {
+                "title": "Frameworks de Desarrollo Multiplataforma",
+                "content": "Descubre los frameworks más populares para el desarrollo multiplataforma y cómo elegir el adecuado para tu proyecto.",
+                "video": "https://www.youtube.com/embed/KnCMAKrINMg?enablejsapi=1"
+            }
+        ]
+    }
+]
