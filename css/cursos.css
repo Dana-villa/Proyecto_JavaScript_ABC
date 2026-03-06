@@ -3,17 +3,27 @@ body.modal-open, html.modal-open {
 }
 
 .buscador {
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.buscador input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
+.search-input {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border-radius: 40px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+    background: white;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .grid-cursos {
