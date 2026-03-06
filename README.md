@@ -41,6 +41,7 @@ Diseñado como una plataforma ligera basada en HTML, CSS y JavaScript, utilizand
         ├── login.html
         └── modulo-admin.html
 ```
+
 ---
 ## ⚙️ Tecnologías utilizadas
 
@@ -58,6 +59,7 @@ Diseñado como una plataforma ligera basada en HTML, CSS y JavaScript, utilizand
 
 ### 🎨 Diseño UI
 - Figma
+
 ---
  ## 🔐 Sistema de Autenticación
 
@@ -70,6 +72,7 @@ Cuando el login es exitoso:
 
 Esto permite controlar el acceso a los módulos administrativos.
 Si un usuario intenta acceder sin sesión activa, es redirigido automáticamente al login.
+
 ---
 ## 🧩 Funcionalidades Clave
 ### 📚 Catálogo de Cursos
@@ -99,6 +102,7 @@ Panel administrativo para gestionar:
 - Información institucional
 
 Acceso restringido mediante login.
+
 ---
 ## 🚀 Cómo Ejecutar el Proyecto
 
@@ -124,6 +128,7 @@ Los datos del sistema se almacenan en archivos JSON:
 | `info-admin.json` | Credenciales del administrador |
 | `modules.json`    | Contenido de módulos           |
 | `profesores.json` | Información de docentes        |
+
 ---
 🎨 Diseño del Sistema
 
