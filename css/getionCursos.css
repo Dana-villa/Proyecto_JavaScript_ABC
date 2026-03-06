@@ -249,20 +249,6 @@
     transform: scale(1.15);
 }
 
-.form-container {
-    inset: 0;
-    position: absolute;
-    flex-direction: column;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.562);
-    display: none;
-    z-index: -1;
-}
-
-.close-btn {
-
-}
-
 #courseForm {
     position: relative;
     top: 50%;
@@ -283,10 +269,7 @@
     flex-direction: column;
 }
 
-.active {
-    display: flex;
-    z-index: 10;
-}
+
 
 @media (max-width: 1200px) {
     .search-metrics-row {
@@ -320,15 +303,18 @@
 .form-container {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: -1;
     background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     padding: 20px;
     /* Para manejar visibilidad desde JS puedes usar las clases .hidden */
 }
-
+.active {
+    display: flex;
+    z-index: 10;
+}
 /* El Formulario (Caja Blanca) */
 #courseForm {
     position: relative;
