@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/escudo.webp" type="image/webp">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/docentes.css">
+    <title>Instituto ABC | Catálogo de Cursos</title>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="sidebar-bg"></div>
+            <div class="sidebar-content">
+
+                <div class="sidebar-header">
+                    <a href="catalogo-cursos.html"><img src="../images/escudo.webp" alt="Escudo ABC" class="sidebar-escudo"></a>
+                </div>
+
+                <nav class="sidebar-menu">
+                    <ul>
+                        <li class="menu-item active" data-path="dashboard">
+                            <a href="catalogo-cursos.html" class="menu-link">
+                                <img src="../images/dashboard.webp" alt="" class="menu-icon">
+                                <span>Catálogo de Cursos</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-path="cursos">
+                            <a href="gestion-cursos.html" class="menu-link">
+                                <img src="../images/gestioncursos.webp" alt="Gestión de Cursos" class="menu-icon">
+                                <span>Gestión de Cursos</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-path="docentes">
+                            <a href="gestion-docentes.html" class="menu-link">
+                                <img src="../images/gestiondocentes.webp" alt="Gestión de Docentes" class="menu-icon">
+                                <span>Gestión de Docentes</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" data-path="admin">
+                            <a href="modulo-admin.html" class="menu-link">
+                                <img src="../images/administrador.webp" alt="Módulo Administrador" class="menu-icon">
+                                <span>Módulo Administrador</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="cerrar-sesion">
+                        <a href="" class="menu-link">
+                            <img src="../images/sesion.webp" alt="Cerrar Sesión" class="menu-icon">
+                            <span>Cerrar Sesión</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <main>
+    <h1 class="titulo">Gestión de Docentes</h1>
+
+    <section class="buscador">
+        <input type="text" placeholder="Buscar docentes..." aria-label="Buscar docentes" class="search-input" id="buscarDocente">
+        <button id="nuevoDocente" class="btn-crear">+ Nuevo docente</button>
+    </section>
+
+    <section class="grid-docentes" id="docentesContainer"></section>
+
+    <div id="modalDocente" class="modal hidden">
+        <div class="contenido-modal docente-modal">
+
+        <span class="close-modal" id="cerrarModal">&times;</span>
+
+        <h2 id="modalTitulo">Nuevo docente</h2>
+
+        <form id="formDocente">
+            <input type="hidden" id="docenteId">
+
+            <label>Nombre</label>
+            <input type="text" id="nombre" required>
+
+            <label>Especialidad</label>
+            <input type="text" id="especialidad" required>
+
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" name="edad" min="18" max="100" required>
+
+            <label for="genero">Género</label>
+            <select id="genero" name="genero" required>
+                <option value="">Seleccionar</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                <option value="no_binario">No binario</option>
+            </select>
+
+            <label>Email</label>
+            <input type="email" id="email">
+
+            <label>Teléfono</label>
+            <input type="text" id="telefono">
+
+            <button type="submit" class="btn-guardar">
+            Guardar docente
+            </button>
+        </form>
+
+        </div>
+    </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>Hecho con ❤️ por <a href="https://github.com/dana-villa" target="_blank">Dana Villamizar</a>, <a href="https://github.com/sixthdam" target="_blank">Karina Méndez</a> y <a href="https://github.com/Shiroses" target="_blank"> Santiago Domínguez.</a>
+        </p>
+    </footer>
+</body>
+    <script src="../js/gestionDocentes.js"></script>
+
+</html>
