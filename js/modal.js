@@ -7,16 +7,15 @@ const modalBanner = document.getElementById("modal-banner");
 const modalLessons = document.getElementById("modal-lessons");
 const closeBtn = document.querySelector(".close-modal");
 
+let modules = JSON.parse(localStorage.getItem("courses")) || [];
 
-let modules = [];
-
-fetch("../json/modules.json")
-    .then(res => res.json())
-    .then(data => {
-        modules = data;
-        renderCards();
-    })
-    .catch(error => console.error("Error cargando JSON:", error));
+document.addEventListener('DOMContentLoaded', () => {
+    if (modules.length === 0) {
+        grid.innerHTML = "<p>No hay cursos disponibles actualmente.</p>";
+    } else {
+        renderCards(modules);
+    }
+});
 
 function renderCards(list = modules) {
     grid.innerHTML = "";
@@ -25,14 +24,15 @@ function renderCards(list = modules) {
         const article = document.createElement("article");
         article.classList.add("tarjeta-cursos");
 
+        const bannerPath = module.banner.startsWith('http') ? module.banner : `../${module.banner}`;
+
         article.innerHTML = `
-            <img src="../${module.banner}" alt="${module.title}">
+            <img src="${bannerPath}" alt="${module.title}" onerror="this.src='../images/placeholder.webp'">
             <h3>${module.title}</h3>
             <p>${module.shortDescription}</p>
         `;
 
         article.addEventListener("click", () => openModal(module));
-
         grid.appendChild(article);
     });
 }
@@ -41,7 +41,8 @@ searchInput.addEventListener("input", function () {
     const searchTerm = this.value.toLowerCase().trim();
 
     const filteredModules = modules.filter(module =>
-        module.title.toLowerCase().includes(searchTerm)
+        module.title.toLowerCase().includes(searchTerm) || 
+        module.shortDescription.toLowerCase().includes(searchTerm)
     );
 
     renderCards(filteredModules);
@@ -50,43 +51,39 @@ searchInput.addEventListener("input", function () {
 function openModal(module) {
     document.documentElement.classList.add("modal-open");
     document.body.classList.add("modal-open");
+    
     modalTitle.textContent = module.title;
-    modalDescription.textContent = module.longDescription;
-    modalBanner.src = "../" + module.banner;
+    modalDescription.textContent = module.longDescription || "Sin descripción disponible.";
+    
+    const bannerPath = module.banner.startsWith('http') ? module.banner : `../${module.banner}`;
+    modalBanner.src = bannerPath;
 
     modalLessons.innerHTML = "";
 
-    module.lessons.forEach(lesson => {
-        const lessonDiv = document.createElement("div");
-        lessonDiv.classList.add("lesson");
+    if (module.lessons && Array.isArray(module.lessons)) {
+        module.lessons.forEach(lesson => {
+            const lessonDiv = document.createElement("div");
+            lessonDiv.classList.add("lesson");
 
-        lessonDiv.innerHTML = `
-            <details>
-                <summary>${lesson.title}</summary>
-                <p>${lesson.content}</p>
-                <iframe width="100%" height="315"
-                    src="${lesson.video}"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-            </details>
-        `;
-
-        modalLessons.appendChild(lessonDiv);
-        const details = lessonDiv.querySelector("details");
-
-        details.addEventListener("toggle", function () {
-            if (!this.open) {
-                const iframe = this.querySelector("iframe");
-                if (iframe) {
-                    iframe.contentWindow.postMessage(
-                        '{"event":"command","func":"pauseVideo","args":""}',
-                        '*'
-                    );
-                }
-            }
+            lessonDiv.innerHTML = `
+                <details>
+                    <summary>${lesson.title}</summary>
+                    <div class="lesson-content">
+                        <p>${lesson.content}</p>
+                        ${lesson.video ? `
+                        <iframe width="100%" height="315"
+                            src="${lesson.video.replace("watch?v=", "embed/")}" 
+                            frameborder="0"
+                            allowfullscreen>
+                        </iframe>` : ''}
+                    </div>
+                </details>
+            `;
+            modalLessons.appendChild(lessonDiv);
         });
-    });
+    } else {
+        modalLessons.innerHTML = "<p>Este curso aún no tiene lecciones cargadas.</p>";
+    }
 
     modal.classList.remove("hidden");
 }
