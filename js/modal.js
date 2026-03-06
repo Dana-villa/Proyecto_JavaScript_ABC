@@ -7,7 +7,14 @@ const modalBanner = document.getElementById("modal-banner");
 const modalLessons = document.getElementById("modal-lessons");
 const closeBtn = document.querySelector(".close-modal");
 
-let modules = JSON.parse(localStorage.getItem("courses")) || [];
+let modules = JSON.parse(localStorage.getItem("courses")) || getJson();
+
+async function getJson() {
+    const response = await fetch('./json/modules.json')
+    const data = await response.json()
+    return data
+    
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     if (modules.length === 0) {
