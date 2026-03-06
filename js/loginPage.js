@@ -6,7 +6,7 @@ async function jsonLoader() {
     const data = await response.json()
     return data[0]
 }
-
+localStorage.clear()
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -56,8 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (email === VALID_EMAIL && password === VALID_PASS) {
 
                 sessionStorage.setItem("isLoggedIn", "true");
+                await setStorage()
+                window.location.href = "../pages/gestion-cursos.html"; // Ajusta ruta
 
-                window.location.href = "../index.html"; // Ajusta ruta
 
             } else {
                 alert("Correo o contraseña incorrectos.");
@@ -67,3 +68,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+async function setStorage(){
+    const courseResponse = await fetch('../json/modules.json')
+    const teachersResponse = await fetch('../json/profesores.json')
+
+    const courseData = await courseResponse.json()
+    const teacherData = await teachersResponse.json()  
+    
+    const courseExistingData = JSON.parse(localStorage.getItem("courses")) || [];
+    const teacherExistingData = JSON.parse(localStorage.getItem("docentes")) || [];
+
+    courseData.forEach((module,i) => {
+        courseExistingData.push(courseData[i]);
+    });
+    teacherData.forEach((module,i) => {
+        teacherExistingData.push(teacherData[i]);
+    });
+    localStorage.setItem('courses', JSON.stringify(courseExistingData))
+    localStorage.setItem('docentes', JSON.stringify(teacherExistingData))
+}

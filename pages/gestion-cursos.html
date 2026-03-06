@@ -100,7 +100,7 @@
                         <img src="../images/birrete.webp" alt="Cursos" class="metric-icon">
                         <div class="metric-info">
                             <span class="metric-label">Total Cursos</span>
-                            <span class="metric-number">(8)</span>
+                            <span class="metric-number course">(8)</span>
                         </div>
                     </div>
                     <div class="metric-card metric-estudiantes">
@@ -151,8 +151,9 @@
                 </section>
             </div>
 
-        <div>
-            <form id="courseForm" class="form-container">
+        <div class="form-container">
+            <form id="courseForm">
+                <button class="close-btn">&times;</button>
                 <h2>Crear Nuevo Curso</h2>
                 
                 <div class="section">
@@ -182,7 +183,7 @@
 
                 <button type="button" id="addLessonBtn">+ Añadir otra lección</button>
                 <br><br>
-                <button type="submit" class="submit-btn">Guardar Curso (JSON)</button>
+                <button type="button" class="submit-btn">Guardar Curso (JSON)</button>
             </form>
         </div>
         </main>
@@ -192,5 +193,5 @@
     </footer>
 </body>
     <script src="../js/header.js"></script>
-    <script src="../js/gestionCursos.js"></script>
+    <script src="../js/cursos.js"></script>
 </html>
