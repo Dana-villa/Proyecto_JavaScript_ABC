@@ -1,0 +1,21 @@
+[
+    {
+    "id": 1,
+    "nombre": "Maria Lopez",
+    "especialidad": "Historia Universal",
+    "edad": "32",
+    "genero": "mujer",
+    "email": "maria@email.com",
+    "telefono": "123456"
+    },
+
+    {
+        "id": 2,
+        "nombre": "Juan Perez",
+        "especialidad": "Matemáticas",
+        "edad": "45",
+        "genero": "hombre",
+        "email": "juan@email.com",
+        "telefono": "789012"
+    }
+]

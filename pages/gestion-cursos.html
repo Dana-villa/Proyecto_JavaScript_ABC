@@ -16,18 +16,19 @@
             <div class="sidebar-content">
 
                 <div class="sidebar-header">
-                    <a href="catalogo-cursos.html"><img src="../images/escudo.webp" alt="Escudo ABC" class="sidebar-escudo"></a>
+                    <img src="../images/escudo.webp" alt="Escudo ABC" class="sidebar-escudo">
+
                 </div>
 
                 <nav class="sidebar-menu">
                     <ul>
-                        <li class="menu-item active" data-path="dashboard">
+                        <li class="menu-item" data-path="dashboard">
                             <a href="catalogo-cursos.html" class="menu-link">
                                 <img src="../images/dashboard.webp" alt="" class="menu-icon">
                                 <span>Catálogo de Cursos</span>
                             </a>
                         </li>
-                        <li class="menu-item" data-path="cursos">
+                        <li class="menu-item active" data-path="cursos">
                             <a href="gestion-cursos.html" class="menu-link">
                                 <img src="../images/gestioncursos.webp" alt="Gestión de Cursos" class="menu-icon">
                                 <span>Gestión de Cursos</span>
@@ -60,23 +61,23 @@
         </aside>
     </div>
 
-
         <main class="main-content">
             <header class="main-header">
                 <div class="header-left">
-                    <img src="../images/cuad.webp" alt="Menú" class="icon-grid">
+                    <div class="welcome-texts">
+                        <h1 class="welcome-title"></h1>
+                    </div>
                 </div>
-                
+
                 <div class="header-right">
                     <div class="notificacion">
-                        <img src="../images/notificacion.webp" class="icon-notification">
+                        <img src="../images/notificacion.webp" alt="Notificaciones" class="icon-notification">
                         <span class="notificacion-badge">3</span>
                     </div>
-                    <div class="avatar-container">
-                        <img src="../images/hacker.webp" alt="User Pérez" class="avatar-img">
-                        <span class="avatar-nombre">User Pérez</span>
-                        <img src="../images/aba.webp" alt="" class="icon-chevron">
-                    </div>                   
+                    <div class="avatar-container" id="avatarMenuTrigger">
+                        <img src="../images/hombre.webp" alt="User Pérez" class="avatar-img">
+                        <span class="avatar-nombre"></span>
+                    </div>
                 </div>
             </header>
 
@@ -99,7 +100,7 @@
                         <img src="../images/birrete.webp" alt="Cursos" class="metric-icon">
                         <div class="metric-info">
                             <span class="metric-label">Total Cursos</span>
-                            <span class="metric-number">(8)</span>
+                            <span class="metric-number course">(8)</span>
                         </div>
                     </div>
                     <div class="metric-card metric-estudiantes">
@@ -149,11 +150,48 @@
 
                 </section>
             </div>
-            
-            
-        </main>
-    </div>
 
-    <script src="../js/gestionCursos.js"></script>
+        <div class="form-container">
+            <form id="courseForm">
+                <button class="close-btn">&times;</button>
+                <h2>Crear Nuevo Curso</h2>
+                
+                <div class="section">
+                    <label>Título del Curso:</label>
+                    <input type="text" name="title" required placeholder="Ej: Curso de Desarrollo Web">
+
+                    <label>Descripción Corta:</label>
+                    <input type="text" name="shortDescription" required>
+
+                    <label>Descripción Larga:</label>
+                    <textarea name="longDescription" rows="3"></textarea>
+
+                    <label>URL del Banner (Ruta de imagen):</label>
+                    <input type="text" name="banner" placeholder="../images/ejemplo.webp">
+                </div>
+
+                <hr>
+                <h3>Lecciones</h3>
+                <div id="lessonsContainer">
+                    <div class="lesson-card">
+                        <h4>Lección 1</h4>
+                        <input type="text" name="lessonTitle" placeholder="Título de la lección" required>
+                        <textarea name="lessonContent" placeholder="Contenido de la lección"></textarea>
+                        <input type="url" name="lessonVideo" placeholder="URL de video (YouTube Embed)">
+                    </div>
+                </div>
+
+                <button type="button" id="addLessonBtn">+ Añadir otra lección</button>
+                <br><br>
+                <button type="button" class="submit-btn">Guardar Curso (JSON)</button>
+            </form>
+        </div>
+        </main>
+    <footer class="footer">
+        <p>Hecho con ❤️ por <a href="https://github.com/dana-villa" target="_blank">Dana Villamizar</a>, <a href="https://github.com/sixthdam" target="_blank">Karina Méndez</a> y <a href="https://github.com/Shiroses" target="_blank"> Santiago Domínguez.</a>
+        </p>
+    </footer>
 </body>
+    <script src="../js/header.js"></script>
+    <script src="../js/cursos.js"></script>
 </html>
