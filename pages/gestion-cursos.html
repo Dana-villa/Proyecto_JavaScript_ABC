@@ -103,11 +103,18 @@
                             <span class="metric-number course">(8)</span>
                         </div>
                     </div>
+                    <div class="metric-card metric-cursos">
+                        <img src="../images/birrete.webp" alt="Cursos" class="metric-icon">
+                        <div class="metric-info">
+                            <span class="metric-label">Total Modulos</span>
+                            <span class="metric-number module">(8)</span>
+                        </div>
+                    </div>
                     <div class="metric-card metric-estudiantes">
                         <img src="../images/estud.webp" alt="Estudiantes" class="metric-icon">
                         <div class="metric-info">
-                            <span class="metric-label">Total Estudiantes</span>
-                            <span class="metric-number">(120)</span>
+                            <span class="metric-label">Total Lecciones</span>
+                            <span class="metric-number lect">(120)</span>
                         </div>
                     </div>
                 </div>
@@ -168,24 +175,27 @@
 
                     <label>URL del Banner (Ruta de imagen):</label>
                     <input type="text" name="banner" placeholder="../images/ejemplo.webp">
-                </div>
+                    <div>
+                            <hr>
+                            <h3>Lecciones</h3>
+                                <div id="lessonsContainer">
+                                    <div class="lesson-card">
+                                        <h4>Lección 1</h4>
+                                        <input type="text" name="lessonTitle" placeholder="Título de la lección" required>
+                                        <textarea name="lessonContent" placeholder="Contenido de la lección"></textarea>
+                                        <input type="url" name="lessonVideo" placeholder="URL de video (YouTube Embed)">
+                                        <button type="button" id="addLessonBtn">+ Añadir otra lección</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" id="addModuleBtn">+ Añadir otro modulo</button>
 
-                <hr>
-                <h3>Lecciones</h3>
-                <div id="lessonsContainer">
-                    <div class="lesson-card">
-                        <h4>Lección 1</h4>
-                        <input type="text" name="lessonTitle" placeholder="Título de la lección" required>
-                        <textarea name="lessonContent" placeholder="Contenido de la lección"></textarea>
-                        <input type="url" name="lessonVideo" placeholder="URL de video (YouTube Embed)">
-                    </div>
+                        </div>
+                        <br><br>
+                        <button type="button" class="submit-btn">Guardar Curso (JSON)</button>
+                    </form>
                 </div>
-
-                <button type="button" id="addLessonBtn">+ Añadir otra lección</button>
-                <br><br>
-                <button type="button" class="submit-btn">Guardar Curso (JSON)</button>
-            </form>
-        </div>
+            </div>
         </main>
     <footer class="footer">
         <p>Hecho con ❤️ por <a href="https://github.com/dana-villa" target="_blank">Dana Villamizar</a>, <a href="https://github.com/sixthdam" target="_blank">Karina Méndez</a> y <a href="https://github.com/Shiroses" target="_blank"> Santiago Domínguez.</a>

@@ -452,3 +452,20 @@
 .hidden {
     display: none !important;
 }
+
+.module-container {
+    padding: 5px;
+    background-color: hwb(219 87% 0%);
+    border-radius: 12px;
+}
+
+.module-container button {
+    padding: 5px;
+    background-color: #2951b4;
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    margin-top: 10px;
+}

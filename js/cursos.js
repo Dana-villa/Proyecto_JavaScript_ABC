@@ -7,8 +7,10 @@ const nodes = {
     grid: document.querySelector(".cursos-grid"),
     form: document.querySelector("#courseForm"),
     totalCursos: document.querySelector(".course"),
+    totalLecciones: document.querySelector(".lect"),
     formContainer: document.querySelector(".form-container"),
     lessonsContainer: document.querySelector("#lessonsContainer"),
+
     formTitle: document.querySelector("#courseForm h2"),
     btnCrear: document.querySelector(".btn-crear-curso"),
     btnClose: document.querySelector(".close-btn"),
@@ -39,8 +41,18 @@ const storage = {
  */
 function renderCards() {
     const courses = storage.get();
+    let cnumber = 0;
     nodes.grid.innerHTML = "";
     nodes.totalCursos.textContent = `(${courses.length})`;
+    courses.forEach(course => {
+        console.log(course)
+            
+            if (course.lessons.length != 0){
+                cnumber+= course.lessons.length
+            }
+    });
+    console.log(nodes.totalLecciones)
+    nodes.totalLecciones.textContent = `(${cnumber})`;
 
     courses.forEach(course => {
         const article = document.createElement("article");
@@ -69,6 +81,7 @@ function renderCards() {
 /**
  * Gestión de Lecciones (UI)
  */
+
 function agregarCamposLeccion(data = {}, index = null) {
     const num = index ?? (nodes.lessonsContainer.querySelectorAll(".lesson-card").length + 1);
     const div = document.createElement("div");
@@ -102,6 +115,7 @@ function abrirFormulario(isEdit = false, course = null) {
         nodes.form.shortDescription.value = course.shortDescription;
         nodes.form.longDescription.value = course.longDescription || "";
         nodes.form.banner.value = course.banner || "";
+        
         
         const lessons = course.lessons?.length ? course.lessons : [{}];
         lessons.forEach((l, i) => agregarCamposLeccion(l, i + 1));
