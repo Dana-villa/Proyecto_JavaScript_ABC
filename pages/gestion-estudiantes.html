@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../images/escudo.webp" type="image/webp">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/cursos.css">
-    <title>Instituto ABC | Catálogo de Cursos</title>
+    <link rel="stylesheet" href="../css/estudiantes.css">
+    <title>Instituto ABC | Gestión de Estudiantes</title>
 </head>
 <body>
     <!-- Sidebar -->
@@ -21,7 +21,7 @@
 
                 <nav class="sidebar-menu">
                     <ul>
-                        <li class="menu-item active" data-path="dashboard">
+                        <li class="menu-item" data-path="dashboard">
                             <a href="catalogo-cursos.html" class="menu-link">
                                 <img src="../images/dashboard.webp" alt="" class="menu-icon">
                                 <span>Catálogo de Cursos</span>
@@ -33,7 +33,7 @@
                                 <span>Gestión de Cursos</span>
                             </a>
                         </li>
-                        <li class="menu-item" data-path="docentes">
+                        <li class="menu-item active" data-path="docentes">
                             <a href="gestion-docentes.html" class="menu-link">
                                 <img src="../images/gestiondocentes.webp" alt="Gestión de Docentes" class="menu-icon">
                                 <span>Gestión de Docentes</span>
@@ -66,49 +66,88 @@
         </aside>
     </div>
 
-        <main class="main-content">
-            <header class="main-header">
-                <div class="header-left">
-                    <div class="welcome-texts">
-                        <h1 class="welcome-title"></h1>
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-left">
+                <div class="welcome-texts">
+                    <h1 class="welcome-title"></h1>
                 </div>
+            </div>
 
-                <div class="header-right">
-                    <div class="notificacion">
-                        <img src="../images/notificacion.webp" alt="Notificaciones" class="icon-notification">
-                        <span class="notificacion-badge">3</span>
-                    </div>
-                    <div class="avatar-container" id="avatarMenuTrigger">
-                        <img src="../images/hombre.webp" alt="User Pérez" class="avatar-img">
-                        <span class="avatar-nombre"></span>
-                    </div>
+            <div class="header-right">
+                <div class="notificacion">
+                    <img src="../images/notificacion.webp" alt="Notificaciones" class="icon-notification">
+                    <span class="notificacion-badge">3</span>
                 </div>
-            </header>
-
-            <h1 class="titulo">Catálogo de Cursos</h1>
-            <section class="buscador">
-                <input type="text" placeholder="Buscar cursos..." aria-label="Buscar cursos"class="search-input">
-            </section>
-
-            <!-- Tarjetas de cursos -->
-            <section class="grid-cursos"></section>
-                <div id="modal" class="modal hidden">
-                    <div class="contenido-modal">
-                        <span class="close-modal">&times;</span>
-                        <img id="modal-banner" src="" alt="Banner del curso">
-                        <h2 id="modal-title"></h2>
-                        <p id="modal-description"></p>
-                        <div id="modal-lessons"></div>
-                    </div>
+                <div class="avatar-container" id="avatarMenuTrigger">
+                    <img src="../images/hombre.webp" alt="User Pérez" class="avatar-img">
+                    <span class="avatar-nombre"></span>
+                    <img src="" alt="" class="icon-chevron">
                 </div>
-        </main>
-    <script src="../js/modal.js"></script>
+            </div>
+        </header>
+
+        <h1 class="titulo">Gestión de Estudiantes</h1>
+
+        <section class="buscador">
+            <input type="text" placeholder="Buscar Estudiantes..." aria-label="Buscar Estudiantes" class="search-input" id="buscarEstudiante">
+            <button id="nuevoEstudiante" class="btn-crear">+ Nuevo Estudiante</button>
+        </section>
+
+        <section class="grid-estudiante" id="estudiantesContainer"></section>
+
+        <div id="modalEstudiante" class="modal hidden">
+            <div class="contenido-modal estudiante-modal">
+
+            <span class="close-modal" id="cerrarModal">&times;</span>
+
+            <h2 id="modalTitulo">Nuevo Estudiante</h2>
+
+            <form id="formEstudiante">
+                <input type="hidden" id="estudianteId">
+
+                <label>Nombres</label>
+                <input type="text" id="nombre" required>
+                
+                <label>Apellidos</label>
+                <input type="text" id="apellido" required>
+
+                <label>Identificación</label>
+                <input type="text" id="identificacion" required>
+
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad" min="18" max="100" required>
+
+                <label for="genero">Género</label>
+                <select id="genero" name="genero" required>
+                    <option value="">Seleccionar</option>
+                    <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                    <option value="no_binario">No binario</option>
+                </select>
+
+                <label>Dirección</label>
+                <input type="text" id="nombre" required>
+
+                <label>Teléfono</label>
+                <input type="text" id="telefono">
+
+                <button type="submit" class="btn-guardar">
+                Guardar Estudiante</button>
+            </form>
+
+            </div>
+        </div>
+
+    </main>
+
     <footer class="footer">
         <p>Hecho con ❤️ por <a href="https://github.com/dana-villa" target="_blank">Dana Villamizar</a>, <a href="https://github.com/sixthdam" target="_blank">Karina Méndez</a> y <a href="https://github.com/Shiroses" target="_blank"> Santiago Domínguez.</a>
         </p>
     </footer>
 </body>
-<script src="../js/header.js"></script>
-<script src="../js/dashboard.js"></script>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/gestionEstudiantes.js"></script>
 
 </html>

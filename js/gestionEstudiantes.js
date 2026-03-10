@@ -1,38 +1,37 @@
-const container = document.getElementById("docentesContainer");
-const modal = document.getElementById("modalDocente");
-const form = document.getElementById("formDocente");
+const container = document.getElementById("estudianteContainer");
+const modal = document.getElementById("modalEstudiante");
+const form = document.getElementById("formEstudiante");
 const buscador = document.querySelector(".search-input");
-
-const btnNuevo = document.getElementById("nuevoDocente");
+const btnNuevo = document.getElementById("nuevoEstudiante");
 const cerrarModal = document.getElementById("cerrarModal");
 
-let docentes = [];
+let estudiantes = [];
 
-async function cargarDocentes() {
+async function cargarEstudiantes() {
 
     try {
 
-        const res = await fetch("../json/profesores.json");
+        const res = await fetch("../json/estudiantes.json");
 
         if (!res.ok) {
             throw new Error("No se pudo cargar el JSON");
         }
 
-        const jsonDocentes = await res.json();
+        const jsonEstudiantes = await res.json();
 
-        const guardados = JSON.parse(localStorage.getItem("docentes")) || [];
+        const guardados = JSON.parse(localStorage.getItem("estudiantes")) || [];
 
-        docentes = [...jsonDocentes];
+        estudiantes = [...jsonEstudiantes];
 
         guardados.forEach(d => {
-            const existe = docentes.some(doc => doc.id === d.id);
+            const existe = estudiantes.some(doc => doc.id === d.id);
             if(!existe){
-                docentes.push(d);
+                estudiantes.push(d);
             }
         });
 
         guardarDatos();
-        renderDocentes();
+        renderEstudiantes();
 
     } catch (error) {
         console.error("Error cargando JSON:", error);
@@ -41,7 +40,7 @@ async function cargarDocentes() {
 }
 
 function guardarDatos() {
-    localStorage.setItem("docentes", JSON.stringify(docentes));
+    localStorage.setItem("estudiantes", JSON.stringify(estudiantes));
 }
 
 function colorGenero(genero){
@@ -63,23 +62,23 @@ function colorGenero(genero){
     return "#ffffff";
 }
 
-function renderDocentes(lista = docentes){
+function renderEstudiantes(lista = estudiantes){
 
     container.innerHTML = "";
 
     lista.forEach(doc => {
 
         const article = document.createElement("article");
-        article.classList.add("docente-card");
+        article.classList.add("estudiante-card");
 
         article.style.background = colorGenero(doc.genero);
 
         article.innerHTML = `
             <h3>${doc.nombre}</h3>
 
-            <p><strong>Especialidad:</strong> ${doc.especialidad}</p>
+            <p><strong>Identificación:</strong> ${doc.identificacion}</p>
             <p><strong>Edad:</strong> ${doc.edad}</p>
-            <p><strong>Email:</strong> ${doc.email || "-"}</p>
+            <p><strong>Telefono:</strong> ${doc.telefono || "-"}</p>
 
             <div class="card-acciones">
                 <img src="../images/lapiz.webp" class="accion-icon editar">
@@ -92,12 +91,12 @@ function renderDocentes(lista = docentes){
 
         btnEditar.addEventListener("click", (e) => {
             e.stopPropagation();
-            editarDocente(doc.id);
+            editarEstudiante(doc.id);
         });
 
         btnEliminar.addEventListener("click", (e) => {
             e.stopPropagation();
-            eliminarDocente(doc.id);
+            eliminarEstudiante(doc.id);
         });
 
         container.appendChild(article);
@@ -112,13 +111,13 @@ buscador.addEventListener("input", () => {
 
     const texto = buscador.value.toLowerCase().trim();
 
-    const filtrados = docentes.filter(doc =>
+    const filtrados = estudiantes.filter(doc =>
         doc.nombre.toLowerCase().includes(texto) ||
-        doc.especialidad.toLowerCase().includes(texto) ||
-        (doc.email && doc.email.toLowerCase().includes(texto))
+        doc.apellidos.toLowerCase().includes(texto) ||
+        (doc.direccion.toLowerCase().includes(texto))
     );
 
-    renderDocentes(filtrados);
+    renderEstudiantes(filtrados);
 
 });
 
@@ -126,7 +125,7 @@ btnNuevo.onclick = () => {
 
     form.reset();
 
-    document.getElementById("docenteId").value = "";
+    document.getElementById("estudianteId").value = "";
 
     modal.classList.remove("hidden");
 
@@ -140,9 +139,9 @@ form.addEventListener("submit", e => {
 
     e.preventDefault();
 
-    const id = document.getElementById("docenteId").value;
+    const id = document.getElementById("estudianteId").value;
 
-    const docente = {
+    const estudiante = {
 
         id: id ? Number(id) : Date.now(),
 
@@ -164,29 +163,29 @@ form.addEventListener("submit", e => {
 
     if(id){
 
-        docentes = docentes.map(d =>
-            d.id === Number(id) ? docente : d
+        estudiantes = estudiantes.map(d =>
+            d.id === Number(id) ? estudiante : d
         );
 
     }else{
 
-        docentes.push(docente);
+        estudiantes.push(estudiante);
 
     }
 
     guardarDatos();
-    renderDocentes();
+    renderEstudiantes();
 
     modal.classList.add("hidden");
 
 });
 
-function editarDocente(id){
+function editarEstudiante(id){
 
-    const doc = docentes.find(d => d.id === id);
+    const doc = estudiantes.find(d => d.id === id);
     if(!doc) return;
 
-    document.getElementById("docenteId").value = doc.id;
+    document.getElementById("estudianteId").value = doc.id;
     document.getElementById("nombres").value = doc.nombres;
     document.getElementById("apellidos").value = doc.apellidos;
     document.getElementById("identificacion").value = doc.identificacion || "";
@@ -199,13 +198,13 @@ function editarDocente(id){
 
 }
 
-function eliminarDocente(id){
+function eliminarEstudiante(id){
 
-    docentes = docentes.filter(d => d.id !== id);
+    estudiantes = estudiantes.filter(d => d.id !== id);
 
     guardarDatos();
-    renderDocentes();
+    renderEstudiantes();
 
 }
 
-cargarDocentes();
+cargarEstudiantes();

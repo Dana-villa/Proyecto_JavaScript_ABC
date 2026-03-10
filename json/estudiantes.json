@@ -1,0 +1,24 @@
+[
+    {
+    "id": 1,
+    "nombres": "Oswald",
+    "apellidos": "Mendez",
+    "identificacion": "123",
+    "edad": "27",
+    "genero": "no binario",
+    "direccion": "calle 703, underground facility",
+    "telefono": "123456"
+    },
+
+    {
+        "id": 2,
+        "nombres": "Niru",
+        "apellidos": "Dominguez",
+        "identificacion": "456",
+        "edad": "27",
+        "genero": "no binario",
+        "direccion": "calle 703, underground facility",
+        "telefono": "123456"
+    
+    }
+]
