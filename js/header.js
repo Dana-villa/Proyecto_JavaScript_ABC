@@ -1,53 +1,80 @@
+/**
+ * Utility: Fetch JSON data
+ */
 async function jsonHandler(file) {
-    const response = await fetch(file)
-    const data = await response.json();
-    return data
+  try {
+    const response = await fetch(file);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    return await response.json();
+  } catch (error) {
+    console.error("Could not fetch JSON:", error);
+    return null;
+  }
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
+/**
+ * Main Dashboard Initialization
+ */
+document.addEventListener('DOMContentLoaded', async () => {
+  const data = await jsonHandler("../json/info-admin.json");
 
-    const data = await jsonHandler("../json/info-admin.json")
+  // Update UI with Admin Data
+  if (data && data[0]) {
+    const admin = data[0];
+    const welcomeTitle = document.querySelector(".welcome-title");
+    const avatarName = document.querySelector(".avatar-nombre");
 
-    const avatarTrigger = document.getElementById('avatarMenuTrigger');
-    const avatarDropdown = document.getElementById('avatarDropdown');
+    if (welcomeTitle) welcomeTitle.textContent = `Bienvenido de Vuelta, ${admin.name}`;
+    if (avatarName) avatarName.textContent = admin.name;
+  }
 
-    if (avatarTrigger && avatarDropdown) {
-        avatarTrigger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            avatarDropdown.classList.toggle('show');
-        });
+  /**
+   * Avatar Menu Logic
+   */
+  const avatarTrigger = document.getElementById('avatarMenuTrigger');
+  const avatarDropdown = document.getElementById('avatarDropdown');
 
-        document.addEventListener('click', function(event) {
-            if (!avatarTrigger.contains(event.target) && !avatarDropdown.contains(event.target)) {
-                avatarDropdown.classList.remove('show');
-            }
-        });
+  if (avatarTrigger && avatarDropdown) {
+    // Toggle menu
+    avatarTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      avatarDropdown.classList.toggle('show');
+    });
 
-        avatarDropdown.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (e.target.tagName === 'LI') {
-                console.log('Opción seleccionada:', e.target.innerText);
-                avatarDropdown.classList.remove('show');
-            }
-        });
-    }
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!avatarTrigger.contains(e.target) && !avatarDropdown.contains(e.target)) {
+        avatarDropdown.classList.remove('show');
+      }
+    });
 
-    const cerrarSesionBtn = document.querySelector('.cerrar-sesion');
-    if (cerrarSesionBtn) {
-        cerrarSesionBtn.addEventListener('click', function() {
-            console.log('Cerrar sesión (simulado)');
-            alert('Sesión cerrada (demostración)');
-        });
-    }
+    // Handle menu item clicks (Event Delegation)
+    avatarDropdown.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const listItem = e.target.closest('li');
+      if (listItem) {
+        console.log('Opción seleccionada:', listItem.innerText);
+        avatarDropdown.classList.remove('show');
+      }
+    });
+  }
 
-    const notificacionIcon = document.querySelector('.notificacion');
-    if (notificacionIcon) {
-        notificacionIcon.addEventListener('click', function() {
-            console.log('Notificaciones: 3 no leídas');
-            alert('Tienes 3 notificaciones nuevas (simulación)');
-        });
-    }
+  /**
+   * Action Buttons (Logout & Notifications)
+   */
+  const cerrarSesionBtn = document.querySelector('.cerrar-sesion');
+  if (cerrarSesionBtn) {
+    cerrarSesionBtn.onclick = () => {
+      console.log('Cerrar sesión (simulado)');
+      alert('Sesión cerrada (demostración)');
+    };
+  }
 
-    document.querySelector(".welcome-title").textContent = `Bienvenido de Vuelta, ${data[0].name}`
-    document.querySelector(".avatar-nombre").textContent = `${data[0].name}`
+  const notificacionIcon = document.querySelector('.notificacion');
+  if (notificacionIcon) {
+    notificacionIcon.onclick = () => {
+      console.log('Notificaciones: 3 no leídas');
+      alert('Tienes 3 notificaciones nuevas (simulación)');
+    };
+  }
 });

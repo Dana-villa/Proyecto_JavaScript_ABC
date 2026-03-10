@@ -1,76 +1,108 @@
-async function jsonLoader() {
-    const response = await fetch("../json/info-admin.json");
-    const data = await response.json();
-    return data[0];
-}
-localStorage.clear()
+/**
+ * Configuración y Constantes
+ */
+const ENDPOINTS = {
+    ADMIN: "../json/info-admin.json",
+    MODULES: "../json/modules.json",
+    TEACHERS: "../json/profesores.json"
+};
 
-document.addEventListener("DOMContentLoaded", function () {
+const REDIRECTS = {
+    ADMIN: "modulo-admin.html",
+    DASHBOARD: "../pages/gestion-cursos.html"
+};
 
-    const togglePassword = document.getElementById("toggle-password");
-    const passwordField = document.getElementById("password-field");
-
-    if (togglePassword && passwordField) {
-        togglePassword.addEventListener("click", function () {
-
-            const type = passwordField.type === "password" ? "text" : "password";
-            passwordField.type = type;
-
-            togglePassword.style.opacity = type === "text" ? "0.7" : "1";
-        });
+/**
+ * Utilidades de Datos
+ */
+const api = {
+    async fetchJson(url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Error cargando: ${url}`);
+            return await response.json();
+        } catch (error) {
+            console.error(error);
+            return null;
+        }
     }
+};
 
-    const loginForm = document.querySelector(".tarjeta-login");
-
+/**
+ * Lógica Principal
+ */
+document.addEventListener("DOMContentLoaded", () => {
+    // Redirección si ya está logueado
     if (sessionStorage.getItem("isLoggedIn")) {
-        window.location.href = "modulo-admin.html";
+        window.location.href = REDIRECTS.ADMIN;
         return;
     }
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", async function (e) {
-
-            e.preventDefault();
-
-            const email = document.getElementById("user-name").value.trim();
-            const password = passwordField.value.trim();
-
-            const data = await jsonLoader();
-
-            const VALID_EMAIL = data.email;
-            const VALID_PASS = data.password;
-
-            if (email === VALID_EMAIL && password === VALID_PASS) {
-
-                sessionStorage.setItem("isLoggedIn", "true");
-                await setStorage()
-                window.location.href = "../pages/gestion-cursos.html";
-
-            } else {
-                alert("Correo o contraseña incorrectos.");
-            }
-
-        });
-    }
-
+    initPasswordToggle();
+    initLoginForm();
 });
 
-async function setStorage(){
-    const courseResponse = await fetch('../json/modules.json')
-    const teachersResponse = await fetch('../json/profesores.json')
+/**
+ * Funcionalidad de Mostrar/Ocultar Contraseña
+ */
+function initPasswordToggle() {
+    const toggleBtn = document.getElementById("toggle-password");
+    const passwordInput = document.getElementById("password-field");
 
-    const courseData = await courseResponse.json()
-    const teacherData = await teachersResponse.json()  
+    if (!toggleBtn || !passwordInput) return;
+
+    toggleBtn.addEventListener("click", () => {
+        const isPassword = passwordInput.type === "password";
+        passwordInput.type = isPassword ? "text" : "password";
+        toggleBtn.style.opacity = isPassword ? "0.7" : "1";
+    });
+}
+
+/**
+ * Gestión del Formulario de Login
+ */
+function initLoginForm() {
+    const loginForm = document.querySelector(".tarjeta-login");
+    const passwordInput = document.getElementById("password-field");
+
+    if (!loginForm) return;
+
+    loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("user-name").value.trim();
+        const password = passwordInput.value.trim();
+
+        const adminData = await api.fetchJson(ENDPOINTS.ADMIN);
+        if (!adminData) return;
+        const { email: validEmail, password: validPass } = adminData[0];
+
+        if (email === validEmail && password === validPass) {
+            sessionStorage.setItem("isLoggedIn", "true");
+            await syncInitialStorage();
+            window.location.href = REDIRECTS.DASHBOARD;
+        } else {
+            alert("Correo o contraseña incorrectos.");
+        }
+    });
+}
+
+/**
+ * Inicialización de Base de Datos Local
+ */
+async function syncInitialStorage() {
+    localStorage.clear();
+
+    const [modules, teachers] = await Promise.all([
+        api.fetchJson(ENDPOINTS.MODULES),
+        api.fetchJson(ENDPOINTS.TEACHERS)
+    ]);
+
+    if (modules) {
+        localStorage.setItem('courses', JSON.stringify(modules));
+    }
     
-    const courseExistingData = JSON.parse(localStorage.getItem("courses")) || [];
-    const teacherExistingData = JSON.parse(localStorage.getItem("docentes")) || [];
-
-    courseData.forEach((module,i) => {
-        courseExistingData.push(courseData[i]);
-    });
-    teacherData.forEach((module,i) => {
-        teacherExistingData.push(teacherData[i]);
-    });
-    localStorage.setItem('courses', JSON.stringify(courseExistingData))
-    localStorage.setItem('docentes', JSON.stringify(teacherExistingData))
+    if (teachers) {
+        localStorage.setItem('docentes', JSON.stringify(teachers));
+    }
 }

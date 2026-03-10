@@ -1,20 +1,48 @@
-const grid = document.querySelector(".cursos-grid");
-const form = document.querySelector("#courseForm");
-const total_cursos = document.querySelector(".course");
-const formContainer = document.querySelector(".form-container");
-const lessonsContainer = document.querySelector("#lessonsContainer");
+/**
+ * Constantes y Selectores
+ */
+const STORAGE_KEY = "courses";
 
-let editMode = false;
-let editId = null;
+const nodes = {
+    grid: document.querySelector(".cursos-grid"),
+    form: document.querySelector("#courseForm"),
+    totalCursos: document.querySelector(".course"),
+    formContainer: document.querySelector(".form-container"),
+    lessonsContainer: document.querySelector("#lessonsContainer"),
+    formTitle: document.querySelector("#courseForm h2"),
+    btnCrear: document.querySelector(".btn-crear-curso"),
+    btnClose: document.querySelector(".close-btn"),
+    btnSubmit: document.querySelector(".submit-btn"),
+    btnAddLesson: document.getElementById("addLessonBtn")
+};
 
+let state = {
+    editMode: false,
+    editId: null
+};
+
+/**
+ * Inicialización
+ */
 document.addEventListener('DOMContentLoaded', renderCards);
 
-function renderCards() {
-    grid.innerHTML = "";
-    const dataList = JSON.parse(localStorage.getItem("courses")) || [];
-    total_cursos.textContent = `(${dataList.length})`;
+/**
+ * Lógica de Almacenamiento
+ */
+const storage = {
+    get: () => JSON.parse(localStorage.getItem(STORAGE_KEY)) || [],
+    set: (data) => localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+};
 
-    dataList.forEach(course => {
+/**
+ * Renderizado de Interfaz
+ */
+function renderCards() {
+    const courses = storage.get();
+    nodes.grid.innerHTML = "";
+    nodes.totalCursos.textContent = `(${courses.length})`;
+
+    courses.forEach(course => {
         const article = document.createElement("article");
         article.classList.add("curso-card");
         article.innerHTML = `
@@ -30,140 +58,132 @@ function renderCards() {
             </div>
         `;
 
-        article.querySelector(".editar").addEventListener("click", (e) => {
-            e.stopPropagation();
-            prepararEdicion(course.id);
-        });
+        // Event Delegation manual por cada card para mantener la estructura original
+        article.querySelector(".editar").onclick = () => prepararEdicion(course.id);
+        article.querySelector(".eliminar").onclick = () => eliminarCurso(course.id);
 
-        article.querySelector(".eliminar").addEventListener("click", (e) => {
-            e.stopPropagation();
-            eliminarCurso(course.id);
-        });
-
-        grid.appendChild(article);
+        nodes.grid.appendChild(article);
     });
 }
 
-async function saveCourse() {
-    const formData = new FormData(form);
-    
-    const courseData = {
-        title: formData.get("title"),
-        shortDescription: formData.get("shortDescription"),
-        longDescription: formData.get("longDescription"),
-        banner: formData.get("banner"),
-        lessons: [] 
-    };
-
-    const lessonTitles = formData.getAll("lessonTitle");
-    const lessonContents = formData.getAll("lessonContent");
-    const lessonVideos = formData.getAll("lessonVideo");
-
-    lessonTitles.forEach((title, index) => {
-        courseData.lessons.push({
-            title: title,
-            content: lessonContents[index],
-            video: lessonVideos[index]
-        });
-    });
-
-    let courses = JSON.parse(localStorage.getItem("courses")) || [];
-
-    if (editMode) {
-        courses = courses.map(c => 
-            c.id === editId ? { ...courseData, id: editId } : c
-        );
-        alert("Curso actualizado con éxito");
-    } else {
-        courseData.id = Date.now(); 
-        courses.push(courseData);
-        alert("Curso creado con éxito");
-    }
-
-    localStorage.setItem('courses', JSON.stringify(courses));
-    cerrarFormulario();
-    renderCards();
-}
-
-function prepararEdicion(id) {
-    const courses = JSON.parse(localStorage.getItem("courses"));
-    const course = courses.find(c => c.id == id);
-
-    if (course) {
-        editMode = true;
-        editId = id;
-        
-        form.title.value = course.title;
-        form.shortDescription.value = course.shortDescription;
-        form.longDescription.value = course.longDescription || "";
-        form.banner.value = course.banner || "";
-
-        lessonsContainer.innerHTML = "";
-        if (course.lessons && course.lessons.length > 0) {
-            course.lessons.forEach((lesson, index) => {
-                agregarCamposLeccion(lesson, index + 1);
-            });
-        } else {
-            agregarCamposLeccion(); 
-        }
-
-        form.querySelector("h2").textContent = "Editar Curso";
-        formContainer.classList.add("active");
-    }
-}
-
-function agregarCamposLeccion(data = {}, num = 1) {
+/**
+ * Gestión de Lecciones (UI)
+ */
+function agregarCamposLeccion(data = {}, index = null) {
+    const num = index ?? (nodes.lessonsContainer.querySelectorAll(".lesson-card").length + 1);
     const div = document.createElement("div");
     div.classList.add("lesson-card");
+    
     div.innerHTML = `
         <h4>Lección ${num}</h4>
         <input type="text" name="lessonTitle" placeholder="Título" value="${data.title || ''}" required>
         <textarea name="lessonContent" placeholder="Contenido">${data.content || ''}</textarea>
         <input type="url" name="lessonVideo" placeholder="URL Video" value="${data.video || ''}">
-        <button type="button" class="remove-lesson" onclick="this.parentElement.remove()">Eliminar Lección</button>
+        <button type="button" class="remove-lesson">Eliminar Lección</button>
     `;
-    lessonsContainer.appendChild(div);
+
+    div.querySelector(".remove-lesson").onclick = () => div.remove();
+    nodes.lessonsContainer.appendChild(div);
 }
 
-document.getElementById("addLessonBtn").addEventListener("click", () => {
-    const num = lessonsContainer.querySelectorAll(".lesson-card").length + 1;
-    agregarCamposLeccion({}, num);
-});
+/**
+ * Acciones de Formulario
+ */
+function abrirFormulario(isEdit = false, course = null) {
+    state.editMode = isEdit;
+    state.editId = isEdit ? course.id : null;
+    
+    nodes.form.reset();
+    nodes.lessonsContainer.innerHTML = "";
+    nodes.formTitle.textContent = isEdit ? "Editar Curso" : "Crear Nuevo Curso";
+
+    if (isEdit && course) {
+        nodes.form.title.value = course.title;
+        nodes.form.shortDescription.value = course.shortDescription;
+        nodes.form.longDescription.value = course.longDescription || "";
+        nodes.form.banner.value = course.banner || "";
+        
+        const lessons = course.lessons?.length ? course.lessons : [{}];
+        lessons.forEach((l, i) => agregarCamposLeccion(l, i + 1));
+    } else {
+        agregarCamposLeccion();
+    }
+
+    nodes.formContainer.classList.add("active");
+}
+
+function cerrarFormulario() {
+    nodes.formContainer.classList.remove("active");
+    nodes.form.reset();
+}
+
+/**
+ * Operaciones CRUD
+ */
+async function saveCourse() {
+    const formData = new FormData(nodes.form);
+    const courses = storage.get();
+    const lessonTitles = formData.getAll("lessonTitle");
+    const lessonContents = formData.getAll("lessonContent");
+    const lessonVideos = formData.getAll("lessonVideo");
+
+    const lessons = lessonTitles.map((title, i) => ({
+        title,
+        content: lessonContents[i],
+        video: lessonVideos[i]
+    }));
+
+    const courseData = {
+        id: state.editMode ? state.editId : Date.now(),
+        title: formData.get("title"),
+        shortDescription: formData.get("shortDescription"),
+        longDescription: formData.get("longDescription"),
+        banner: formData.get("banner"),
+        lessons
+    };
+
+    const newCourses = state.editMode 
+        ? courses.map(c => c.id === state.editId ? courseData : c)
+        : [...courses, courseData];
+
+    storage.set(newCourses);
+    alert(state.editMode ? "Curso actualizado con éxito" : "Curso creado con éxito");
+    
+    cerrarFormulario();
+    renderCards();
+}
+
+function prepararEdicion(id) {
+    const course = storage.get().find(c => c.id == id);
+    if (course) abrirFormulario(true, course);
+}
 
 function eliminarCurso(id) {
     if (confirm("¿Estás seguro de que deseas eliminar este curso?")) {
-        let courses = JSON.parse(localStorage.getItem("courses"));
-        courses = courses.filter(c => c.id != id);
-        localStorage.setItem('courses', JSON.stringify(courses));
+        const filtered = storage.get().filter(c => c.id != id);
+        storage.set(filtered);
         renderCards();
     }
 }
 
-document.querySelector(".btn-crear-curso").addEventListener("click", () => {
-    editMode = false;
-    editId = null;
-    form.reset();
-    lessonsContainer.innerHTML = "";
-    agregarCamposLeccion();
-    form.querySelector("h2").textContent = "Crear Nuevo Curso";
-    formContainer.classList.add("active");
-});
+/**
+ * Event listeners
+ */
+nodes.btnCrear.addEventListener("click", () => abrirFormulario(false));
 
-document.querySelector(".close-btn").addEventListener("click", (e) => {
+nodes.btnClose.addEventListener("click", (e) => {
     e.preventDefault();
     cerrarFormulario();
 });
 
-function cerrarFormulario() {
-    formContainer.classList.remove("active");
-    form.reset();
-}
-
-document.querySelector(".submit-btn").addEventListener("click", function(e) {
-    e.preventDefault();
-    if (form.checkValidity()) {
-        saveCourse();
-    } else {
-        form.reportValidity();
+nodes.formContainer.addEventListener("click", (e) => {    if (e.target === nodes.formContainer) {
+        cerrarFormulario();
     }
+});
+
+nodes.btnAddLesson.addEventListener("click", () => agregarCamposLeccion());
+
+nodes.btnSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    nodes.form.checkValidity() ? saveCourse() : nodes.form.reportValidity();
 });

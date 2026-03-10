@@ -1,29 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ * Navigation & Quick Access Management
+ */
+document.addEventListener('DOMContentLoaded', () => {
 
-    const menuItems = document.querySelectorAll('.menu-item');
+  const sidebarMenu = document.querySelector('.sidebar-nav'); // Assuming a parent container exists
+  const menuItems = document.querySelectorAll('.menu-item');
+  const accesosItems = document.querySelectorAll('.acceso-item');
 
-    function setActiveMenuItem(clickedItem) {
-        menuItems.forEach(item => {
-            item.classList.remove('active');
-        });
-        clickedItem.classList.add('active');
-        
-        console.log('Ítem activo:', clickedItem.querySelector('span')?.innerText);
-    }
+  /**
+   * Updates the 'active' class for sidebar navigation
+   * @param {HTMLElement} clickedItem 
+   */
+  const setActiveMenuItem = (clickedItem) => {
+    menuItems.forEach(item => item.classList.remove('active'));
+    clickedItem.classList.add('active');
 
-    menuItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.stopPropagation();
-            setActiveMenuItem(this);
-        });
+    const label = clickedItem.querySelector('span')?.innerText;
+    console.log(`Navegando a: ${label}`);
+  };
+
+  // Sidebar Menu Events
+  menuItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.stopPropagation();
+      setActiveMenuItem(this);
     });
+  });
 
-    const accesosItems = document.querySelectorAll('.acceso-item');
-    accesosItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const texto = this.querySelector('span')?.innerText || 'elemento';
-            console.log(`Acceso rápido seleccionado: ${texto}`);
-        });
+  // Quick Access (Accesos Rápidos) Events
+  accesosItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const texto = this.querySelector('span')?.innerText || 'elemento';
+      console.log(`Acceso rápido seleccionado: ${texto}`);
+      
     });
+  });
 
 });
